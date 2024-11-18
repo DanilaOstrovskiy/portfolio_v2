@@ -3,6 +3,7 @@ import {Header} from "./layout/header/Header";
 import {Main} from "./layout/sections/main/Main";
 import {QuoteBlock} from "./layout/sections/quoteBlock/QuoteBlock";
 import {Projects} from "./layout/sections/projects/Projects";
+import {Skills} from "./layout/sections/skills/Skills";
 
 
 
@@ -13,6 +14,7 @@ function App() {
             <Main/>
             <QuoteBlock blockquote={"With great power comes great electricity bill"} author={"- Dr. Who"}/>
             <Projects/>
+            <Skills/>
         </div>
     );
 }
