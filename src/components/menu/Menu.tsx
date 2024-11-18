@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import {LanguageSwitcher} from "../languageSwitcher/LanguageSwitcher";
 
 export const Menu = () => {
     return (
@@ -9,6 +10,7 @@ export const Menu = () => {
                 <li><a href="">#works</a></li>
                 <li><a href="">#about-me</a></li>
                 <li><a href="">#contacts</a></li>
+                <li><LanguageSwitcher/></li>
             </ul>
         </StyledMenu>
     );
