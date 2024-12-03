@@ -16,7 +16,7 @@ const data = [
 export const Skills = () => {
     return (
         <StyledSkills>
-            <SectionTitle title={"#skills"}/>
+            <SectionTitle>#skills</SectionTitle>
             <SkillsWrapper>
             <AbstractFigures>
                 <Icon iconId={"pink_logo"} height={"86"} width={"150"}/>
