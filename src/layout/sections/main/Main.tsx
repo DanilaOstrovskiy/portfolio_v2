@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import photo from '../../../assets/images/avatar1.webp'
 import {FlexWrapper} from "../../../components/flexWrapper/FlexWrapper";
+import {Button} from "../../../components/button/Button";
 
 export const Main = () => {
     return (
@@ -10,7 +11,7 @@ export const Main = () => {
                 <div>
                     <Name>Elias is a web designer and front-end developer</Name>
                     <MainTitle>He crafts responsive websites where technologies meet creativity</MainTitle>
-                    <button>Contact me!!</button>
+                    <Button>Contact me!!</Button>
                 </div>
                 <div>
                     <Photo src={photo} alt=""/>
@@ -21,7 +22,7 @@ export const Main = () => {
     );
 };
 
-const StyledMain = styled.div`
+const StyledMain = styled.section`
     min-height: 100vh;
     background-color: rgba(163, 149, 149, 0.93);
 `
