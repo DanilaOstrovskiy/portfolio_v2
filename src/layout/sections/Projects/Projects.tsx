@@ -37,7 +37,7 @@ const projectsData = [
 export const Projects = () => {
     return (
         <StyledProjects>
-            <SectionTitle title={"#projects"}/>
+            <SectionTitle>#projects</SectionTitle>
             <StyledAnchor href="projects">View all ~~&gt;</StyledAnchor>
             <FlexWrapper>
                 {projectsData.map((project) => (
