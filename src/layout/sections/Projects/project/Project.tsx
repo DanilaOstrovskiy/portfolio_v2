@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {Image} from "../image/Image";
+import {Image} from "../../../../components/image/Image";
 
 type ProjectPropsType = {
     imgSrc: string;
