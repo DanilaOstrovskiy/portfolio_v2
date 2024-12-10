@@ -33,7 +33,6 @@ export const About = () => {
 
 const StyledAbout = styled.section`
     min-height: 100vh;
-    background-color: rgba(163, 149, 149, 0.93);
 `;
 
 const StyledDescription = styled.div``

@@ -18,8 +18,7 @@ export const QuoteBlock = (props: QuoteBlockPropsType) => {
     );
 };
 
-const StyledBlockquote = styled.blockquote`
-    background-color: pink;
+const StyledBlockquote = styled.section`
     max-height: 100vh;
     text-align: center;
 `

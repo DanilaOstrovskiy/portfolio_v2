@@ -33,7 +33,6 @@ export const Contacts = () => {
 };
 
 const StyledContacts = styled.section`
-    background-color: #b6daa7;
 `
 const StyledText = styled.p``
 const StyledContactTitle = styled.p``

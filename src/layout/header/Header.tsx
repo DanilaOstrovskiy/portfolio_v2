@@ -4,6 +4,7 @@ import {Logo} from "../../components/logo/Logo";
 import {Menu} from "../../components/menu/Menu";
 import {LanguageSwitcher} from "../../components/languageSwitcher/LanguageSwitcher";
 import {FlexWrapper} from "../../components/flexWrapper/FlexWrapper";
+import {Container} from "../../components/Container";
 
 
 export const Header = () => {
@@ -13,17 +14,21 @@ export const Header = () => {
         "#contacts"]
     return (
         <StyledHeader>
-            <Logo/>
-            <FlexWrapper>
-                <Menu menuItems={headerMenu}/>
-                <LanguageSwitcher/>
-            </FlexWrapper>
+            <Container>
+                <FlexWrapper justify={'space-between'} align={'center'}>
+                    <Logo/>
+                    <MenuWrapper>
+                        <Menu menuItems={headerMenu}/>
+                        <LanguageSwitcher/>
+                    </MenuWrapper>
+                </FlexWrapper>
+            </Container>
         </StyledHeader>
     );
 };
 
 const StyledHeader = styled.header`
-background-color: green;
-display: flex;
-justify-content: space-between;`
+background-color: green;`
 
+const MenuWrapper = styled.div`
+display: flex;`

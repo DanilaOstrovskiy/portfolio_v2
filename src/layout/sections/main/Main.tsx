@@ -24,7 +24,6 @@ export const Main = () => {
 
 const StyledMain = styled.section`
     min-height: 100vh;
-    background-color: rgba(163, 149, 149, 0.93);
 `
 
 const Photo = styled.img`
