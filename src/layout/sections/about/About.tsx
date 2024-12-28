@@ -20,7 +20,7 @@ export const About = () => {
                         over a
                         year. I have been helping various clients to establish their presence online. I always strive to
                         learn about the newest technologies and frameworks</StyledParagraph>
-                    <a href="#">Read more -&gt;</a>
+                    <Link href="#">Read more -&gt;</Link>
                 </StyledDescription>
                 <StyledAvatar>
                 <Image src={avatar2} alt={"avatar2"}/>
@@ -39,3 +39,4 @@ const StyledDescription = styled.div``
 const StyledAvatar = styled.div``
 
 const StyledParagraph = styled.p``
+const Link = styled.a``
