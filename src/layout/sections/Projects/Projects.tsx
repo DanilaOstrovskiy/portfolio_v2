@@ -57,7 +57,6 @@ export const Projects = () => {
 
 
 const StyledProjects = styled.section`
-    background-color: pink;
     min-height: 100vh;
 `
 
