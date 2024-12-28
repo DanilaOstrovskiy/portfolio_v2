@@ -1,26 +1,23 @@
 import React from 'react';
 import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo";
-import {Menu} from "../../components/menu/Menu";
-import {LanguageSwitcher} from "../../components/languageSwitcher/LanguageSwitcher";
 import {FlexWrapper} from "../../components/flexWrapper/FlexWrapper";
 import {Container} from "../../components/Container";
+import {HeaderMenu} from "./headerMenu/HeaderMenu";
+import {theme} from "../../styles/Theme";
 
 
 export const Header = () => {
-    const headerMenu = ["#home",
-        "#works",
-        "#about-me",
-        "#contacts"]
+    const headerMenu = ["home",
+        "works",
+        "about-me",
+        "contacts"]
     return (
         <StyledHeader>
             <Container>
-                <FlexWrapper justify={'space-between'} align={'center'}>
-                    <Logo/>
-                    <MenuWrapper>
-                        <Menu menuItems={headerMenu}/>
-                        <LanguageSwitcher/>
-                    </MenuWrapper>
+                <FlexWrapper justify={'space-between'} align={'flex-end'} >
+                    <Logo />
+                    <HeaderMenu menuItems={headerMenu}/>
                 </FlexWrapper>
             </Container>
         </StyledHeader>
@@ -28,7 +25,7 @@ export const Header = () => {
 };
 
 const StyledHeader = styled.header`
-background-color: green;`
+    padding: 32px 0 8px 0;
+    background-color: ${theme.colors.primaryBg};
+`
 
-const MenuWrapper = styled.div`
-display: flex;`
