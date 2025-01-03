@@ -102,16 +102,19 @@ export const StyledButton = styled.button<ButtonProps>`
 
 const sizes = {
     small: css`
-    padding: 8px 16px;
-    font-size: 14px;
-  `,
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: 500;
+    `,
     medium: css`
-    padding: 12px 20px;
-    font-size: 16px;
-  `,
+        padding: 12px 20px;
+        font-size: 18px;
+        font-weight: 600;
+    `,
     large: css`
-    padding: 16px 24px;
-    font-size: 18px;
-  `
+        padding: 16px 24px;
+        font-size: 20px;
+        font-weight: 700;
+    `
 };
 
