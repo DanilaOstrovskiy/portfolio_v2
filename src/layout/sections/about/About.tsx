@@ -12,7 +12,7 @@ export const About = () => {
             <FlexWrapper align={'left'}>
                 <StyledDescription>
                     <StyledParagraph>Hello, i’m Elias!</StyledParagraph>
-                    <StyledParagraph>I’m a self-taught front-end developer based in Kyiv, Ukraine. I can develop
+                    <StyledParagraph>I’m a self-taught front-end developer based in Manchester, Great Britain. I can develop
                         responsive
                         websites from scratch and raise them into modern user-friendly web
                         experiences. </StyledParagraph>

@@ -39,7 +39,7 @@ export const Main = () => {
 
 const StyledMain = styled.section`
     min-height: 60vh;
-
+    padding: 0 0 112px 0;
 `
 
 
