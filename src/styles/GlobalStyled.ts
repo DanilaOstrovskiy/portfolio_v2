@@ -18,6 +18,8 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: ${theme.colors.primaryText};
+        background-color: ${theme.colors.secondaryBg};
+        line-height: 1.2;
     }
     a {
         text-decoration: none;
@@ -34,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     
     section {
         background-color: ${theme.colors.primaryBg};
+        padding-bottom: 110px;
     }
 
 `
