@@ -8,7 +8,7 @@ import {FlexWrapper} from "../../../components/flexWrapper/FlexWrapper";
 export const About = () => {
     return (
         <StyledAbout>
-            <SectionTitle>#about-me</SectionTitle>
+            <SectionTitle title={"about-me"}/>
             <FlexWrapper align={'left'}>
                 <StyledDescription>
                     <StyledParagraph>Hello, i’m Elias!</StyledParagraph>
