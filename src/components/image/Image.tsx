@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import {theme} from "../../styles/Theme";
 
 type ImagePropsType = {
     src: string;
@@ -15,6 +16,7 @@ export const Image = (props: ImagePropsType) => {
 
 const StyledImage = styled.img`
     max-width: 100%;
-    height: auto;
+    height: 201px;
     object-fit: cover;
+    border: 1px solid ${theme.colors.secondaryText};
 `;
