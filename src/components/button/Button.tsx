@@ -1,32 +1,35 @@
 import styled, {css} from "styled-components";
 import {theme} from "../../styles/Theme";
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger';
-type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonVariant = 'primary' | 'secondary' | 'danger';
+export type ButtonSize = 'small' | 'medium' | 'large';
 
-type ButtonProps = {
+export type ButtonProps = {
     variant?: ButtonVariant;
     size?: ButtonSize;
     disabled?: boolean;
     fullWidth?: boolean;
 }
 
-const variants = {
+export const variants = {
     primary: css`
-    background: ${theme.colors.button.primary.defaultBg};
-    color: ${theme.colors.button.primary.text};
-    border: 1px solid ${theme.colors.button.primary.border};
-    
-    &:hover:not(:disabled) {
-      background: ${theme.colors.button.primary.hoverBg};
-      border-color: ${theme.colors.button.primary.border};
-    }
-    
-    &:active:not(:disabled) {
-      background:  ${theme.colors.button.primary.activeBg};
-      border-color: ${theme.colors.button.primary.border};
-    }
-  `,
+        background: ${theme.colors.button.primary.defaultBg};
+        color: ${theme.colors.button.primary.text};
+        border: 1px solid ${theme.colors.button.primary.border};
+        transition: all 0.2s ease-in-out;
+        font-family: "Fira Code", sans-serif;
+        font-weight: 400;
+
+        &:hover:not(:disabled) {
+            background: ${theme.colors.button.primary.hoverBg};
+            border-color: ${theme.colors.button.primary.border};
+        }
+
+        &:active:not(:disabled) {
+            background: ${theme.colors.button.primary.activeBg};
+            border-color: ${theme.colors.button.primary.border};
+        }
+    `,
     secondary: css`
     background: transparent;
     color: ${theme.colors.button.secondary.text};
@@ -100,7 +103,7 @@ export const StyledButton = styled.button<ButtonProps>`
 
 `
 
-const sizes = {
+export const sizes = {
     small: css`
         padding: 8px 16px;
         font-size: 16px;
