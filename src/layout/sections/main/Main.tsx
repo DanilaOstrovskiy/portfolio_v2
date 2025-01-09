@@ -16,7 +16,7 @@ export const Main = () => {
                     <div>
                         <Name>Elias is a <span>web designer</span> and <span>front-end developer</span></Name>
                         <MainTitle>He crafts responsive websites where technologies <br/>meet creativity</MainTitle>
-                        <StyledButton size={"small"} >Contact me !!</StyledButton>
+                        <StyledButton size={"small"} >Contact me!!</StyledButton>
                     </div>
                     <FlexWrapper direction={"column"} align={'center'}>
                         <PhotoWrapper>
@@ -39,7 +39,6 @@ export const Main = () => {
 
 const StyledMain = styled.section`
     min-height: 60vh;
-    padding: 0 0 112px 0;
 `
 
 
