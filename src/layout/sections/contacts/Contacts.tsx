@@ -8,7 +8,7 @@ export const Contacts = () => {
     return (
         <StyledContacts>
             <FlexWrapper direction={'column'} align={'center'}>
-                <SectionTitle>#contacts</SectionTitle>
+                <SectionTitle title={"contacts"} />
                 <StyledText>
                     I’m interested in freelance opportunities. However, if you have other request or question, don’t
                     hesitate to contact me
