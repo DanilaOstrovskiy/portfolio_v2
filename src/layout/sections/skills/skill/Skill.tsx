@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import {theme} from "../../../../styles/Theme";
 
 type PropsSkillType = {
     title: string;
@@ -20,24 +21,31 @@ export const Skill = (props: PropsSkillType ) => {
 };
 
 const SkillContainer = styled.div`
-    border: 1px solid white;
-    width: 178px;
+    border:1px solid ${theme.colors.secondaryText};
+    max-width: 178px;
+    display: flex;
+    flex-direction: column;
+;
 `
 
 const SkillsTitle = styled.h4`
     color: white;
-    padding-left: 8px;
-    margin: 0;
-  `
+    padding: 8px;
+    border: 1px 1px 0 1px 1px solid ${theme.colors.secondaryText};
+`
 
 const SkillsItems = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    padding: 0;
-    border-top: 1px solid white;
+    padding: 8px;
+    gap: 8px;
+    border-top: 1px solid ${theme.colors.secondaryText};
 `
 const SkillItem = styled.li`
+    font-size: 16px;
+    font-weight: 400;
+    color: ${theme.colors.secondaryText};
     display:inline-block;
     list-style-type: none;
-    padding-left: 5px;
+    
 `;
