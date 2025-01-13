@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import photo from '../../../assets/images/avatar1.webp'
 import {FlexWrapper} from "../../../components/flexWrapper/FlexWrapper";
@@ -6,9 +6,21 @@ import {Container} from "../../../components/Container";
 import {theme} from "../../../styles/Theme";
 import {StyledButton} from "../../../components/button/Button";
 import {Icon} from "../../../components/icon/Icon";
+import {Modal} from "./Modal/Modal";
+import {ContactForm} from "./ContactForm/ContactForm";
+
 
 
 export const Main = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const handleOpenModal = (): void => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = (): void => {
+        setIsModalOpen(false);
+    };
     return (
         <StyledMain>
             <Container>
@@ -16,7 +28,9 @@ export const Main = () => {
                     <div>
                         <Name>Elias is a <span>web designer</span> and <span>front-end developer</span></Name>
                         <MainTitle>He crafts responsive websites where technologies <br/>meet creativity</MainTitle>
-                        <StyledButton size={"small"} >Contact me!!</StyledButton>
+                        <StyledButton size={"small"} onClick={handleOpenModal}>
+                            Contact me!!
+                        </StyledButton>
                     </div>
                     <FlexWrapper direction={"column"} align={'center'}>
                         <PhotoWrapper>
@@ -32,6 +46,9 @@ export const Main = () => {
                     </FlexWrapper>
                 </FlexWrapper>
             </Container>
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+                <ContactForm onClose={handleCloseModal} />
+            </Modal>
         </StyledMain>
     );
 };
