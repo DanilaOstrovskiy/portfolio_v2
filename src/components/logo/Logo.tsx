@@ -17,8 +17,10 @@ export const Logo = () => {
 
 };
 const Link = styled.a`
+    display: flex;  
+    align-items: center;
     &:hover {
-        color: ${theme.colors.primaryText};
+        color: ${theme.colors.primary};
     }
     
     & span {

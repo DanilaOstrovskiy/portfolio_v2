@@ -4,8 +4,8 @@ import {Skill} from "./skill/Skill";
 import styled from "styled-components";
 import {Icon} from "../../../components/icon/Icon";
 import {Container} from "../../../components/Container";
-import {FlexWrapper} from "../../../components/flexWrapper/FlexWrapper";
 import {theme} from "../../../styles/Theme";
+import {FlexWrapper} from "../../../components/flexWrapper/FlexWrapper";
 
 const data = [
     {title: "Languages", items: ["TypeScript", "Lua", "Python", "JavaScript"]},
@@ -20,8 +20,8 @@ export const Skills = () => {
     return (
         <StyledSkills>
             <Container>
-                <SectionTitle title={"skills"} linePosition={240} lineWidth={239} />
-                <FlexWrapper justify={'space-between'}>
+                <SectionTitle title={"skills"} linePosition={240} lineWidth={239}/>
+                <FlexWrapper justify={"space-between"}>
                     <AbstractFigures>
                         <StyledIconWrapper className="first_dots">
                             <Icon iconId={"dots5x5"} viewBox={"0 0 84 84"} height={"63"}
@@ -36,41 +36,75 @@ export const Skills = () => {
                         </StyledIconWrapper>
                         <StyledIconWrapper className="square"></StyledIconWrapper>
                     </AbstractFigures>
-                    <SkillsCards>
-                        {data.map((skill, index) => (
-                            <SkillCard key={index}>
-                                <Skill key={index} title={skill.title} items={skill.items}/>
-                            </SkillCard>
-                        ))}
-                    </SkillsCards>
-                </FlexWrapper>
+                    <SkillsWrapper>
+                        <SkillsCards>
+                            {data.map((skill, index) => (
+                                <SkillCard key={index}>
+                                    <Skill key={index} title={skill.title} items={skill.items}/>
+                                </SkillCard>
+                            ))}
+                        </SkillsCards>
+                    </SkillsWrapper></FlexWrapper>
+
             </Container>
         </StyledSkills>
     );
 };
 
 const StyledSkills = styled.section`
-
+    padding-top: 66px;
+    padding-bottom: 66px;
+`
+const SkillsWrapper = styled.div`
+    padding-top: 50px;
 `
 
 const SkillsCards = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 178px);
-    gap: 5px;
+    //display: grid;
+    //grid-template-columns: repeat(3, 178px);
+    //gap: 5px;
+    //padding-top: 50px;
+    max-height: 280px;
+    width: 584px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    gap: 16px;
 
 `
 
 const SkillCard = styled.div`
 
+    &:nth-child(1) {
+        order: 5
+    }
+
+    &:nth-child(2) {
+        order: 3
+    }
+
+    &:nth-child(3) {
+        order: 1
+    }
+
     &:nth-child(4) {
-        grid-column: 2;
-        position: relative;
-        transform: translateY(-25px);
+        order: 4
     }
 
     &:nth-child(5) {
-        grid-column: 3;
+        order: 2
     }
+
+
+    //&:nth-child(4) {
+    //    grid-column: 2;
+    //    position: relative;
+    //    transform: translateY(-25px);
+    //}
+    //
+    //&:nth-child(5) {
+    //    grid-column: 3;
+    //}
 `;
 
 
@@ -79,35 +113,35 @@ const AbstractFigures = styled.div`
 `
 const StyledIconWrapper = styled.div`
     position: absolute;
+
     &.first_dots {
-        top: 61px;
-        left: 34px;
-    }   
+        transform:translate(34px,58px) ;
+    }
+
     &.big_square {
-        content:"";
+        content: "";
         width: 86px;
         height: 86px;
-        border: 1px solid ${theme.colors.secondaryText};
-        left: 262px;
-        top: 12px;
+        border: 1px solid ${theme.colors.secondary};
+        transform:translate(262px,12px);
     }
 
     &.logo {
-        bottom: 20px;
-        left: 49px;
+        transform:translate(49px,190px);
+    }
 
-    }
     &.second_dots {
-        left:210px;
-        bottom: 100px;
+        transform:translate(210px,165px);
     }
+
     &.square {
-        content:"";
-        border: 1px solid ${theme.colors.secondaryText};
+        content: "";
+        border: 1px solid ${theme.colors.secondary};
         width: 52px;
         height: 52px;
-        bottom: 70px;
-        left: 330px;
+          
+        transform:translate(331px,215px);
+
     }
 `
 

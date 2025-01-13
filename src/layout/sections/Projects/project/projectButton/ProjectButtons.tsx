@@ -1,27 +1,28 @@
 import styled from "styled-components";
-import {ButtonLink} from "../../../../../components/linkAsButton/LinkAsButton";
+import {LinkAsButton} from "../../../../../components/linkAsButton/LinkAsButton";
+
 
 export const ProjectButtons = ({live, cached}: { live?: string, cached?: string }) => {
     return (
 
         <ButtonsWrapper>
 
-                <ButtonLink
+                <LinkAsButton
                     href={live || "/some-path"}
                     variant="primary"
                     size="small"
                     target="_blank">
                     Live &lt;~&gt;
-                </ButtonLink>
+                </LinkAsButton>
 
                 {cached && (
-                    <ButtonLink
+                    <LinkAsButton
                         href={cached}
                         variant="secondary"
                         size="small"
                         target="_blank">
                         Cached &gt;=
-                    </ButtonLink>
+                    </LinkAsButton>
                 )}
 
         </ButtonsWrapper>

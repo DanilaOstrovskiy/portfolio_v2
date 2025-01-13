@@ -14,6 +14,7 @@ export const QuoteBlock = (props: QuoteBlockPropsType) => {
     let {blockquote, author} = props
     return (
         <StyledQuoteBlock>
+
             <Container>
                 <FlexWrapper align={'center'} direction={"column"} justify={"center"}>
                     <BlockQuoteWrapper>
@@ -39,6 +40,7 @@ export const QuoteBlock = (props: QuoteBlockPropsType) => {
                     </BlockQuoteWrapper>
                 </FlexWrapper>
             </Container>
+            <span></span>
         </StyledQuoteBlock>
 
 
@@ -46,8 +48,23 @@ export const QuoteBlock = (props: QuoteBlockPropsType) => {
 };
 
 const StyledQuoteBlock = styled.section`
-    min-height: 40vh;
-    padding: 0 0 112px 0;
+    //min-height: 20vh;
+    padding-top: 66px;
+    padding-bottom: 66px;
+    outline: 1px solid red;
+    position: relative;
+    
+        &::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            border: 1px solid ${theme.colors.secondary};
+            width: 91px; 
+            height: 91px;
+            right: 0;
+            top: 30%
+        }
+    
 `
 
 const BlockQuoteWrapper = styled.div`
@@ -59,13 +76,14 @@ const Quote = styled.section`
     display: flex;
     align-items: center;
     padding: 32px;
-    border: 1px solid ${theme.colors.secondaryText};
+    border: 1px solid ${theme.colors.secondary};
 
 `
 const IconQuoteWrapper = styled.div`
     background-color: ${theme.colors.primaryBg};
     position: absolute;
-    padding: 4px 8px ;
+    padding: 4px 8px;
+
     &.up-quotes {
         z-index: 1;
         top: -13px;
@@ -77,6 +95,7 @@ const IconQuoteWrapper = styled.div`
         right: 15px;
         bottom: 45px;
     }`
+
 const AuthorWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -86,8 +105,8 @@ const Author = styled.footer`
     font-weight: 400;
     font-size: 24px;
     padding: 16px;
-    border-left: 1px solid ${theme.colors.secondaryText};
-    border-right: 1px solid ${theme.colors.secondaryText};
-    border-bottom: 1px solid ${theme.colors.secondaryText};
+    border-left: 1px solid ${theme.colors.secondary};
+    border-right: 1px solid ${theme.colors.secondary};
+    border-bottom: 1px solid ${theme.colors.secondary};
 `
 

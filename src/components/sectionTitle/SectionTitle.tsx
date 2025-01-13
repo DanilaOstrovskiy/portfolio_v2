@@ -40,7 +40,7 @@ const StyledTitle = styled.h2<StyledTitleProps>`
 
         position: absolute;
         left: ${props => props.$linePosition}px;
-        bottom: 15px;
+        top: 15px;
         transform: translateX(-50%);
     }
 `

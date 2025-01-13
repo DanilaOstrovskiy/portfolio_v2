@@ -20,9 +20,8 @@ export const Project = (props: ProjectPropsType) => {
     const {imgSrc, alt, stack, description, title, live, cached} = props
     return (
         <StyledProject>
-            <FlexWrapper direction={"column"} justify={"center"}>
-                <Image src={imgSrc} alt={alt}/>
-
+            <FlexWrapper direction={"column"} >
+                    <Image src={imgSrc} alt={alt} />
                 <ProjectStack>{stack}</ProjectStack>
                 <ProjectInfo>
                     <ProjectTitle>{title}</ProjectTitle>
@@ -30,7 +29,6 @@ export const Project = (props: ProjectPropsType) => {
                     <ProjectButtons live={live} cached={cached} />
                 </ProjectInfo>
             </FlexWrapper>
-
 
         </StyledProject>
 
@@ -40,14 +38,13 @@ export const Project = (props: ProjectPropsType) => {
 const StyledProject = styled.div`
     width: 30%;
     background-color: rgba(0, 0, 0, 0);
-    margin-top:47px;
-    
 `
 
+
 const ProjectInfo = styled.div`
-    border-bottom: 1px solid ${theme.colors.secondaryText};
-    border-left: 1px solid ${theme.colors.secondaryText};
-    border-right: 1px solid ${theme.colors.secondaryText};
+    border-bottom: 1px solid ${theme.colors.secondary};
+    border-left: 1px solid ${theme.colors.secondary};
+    border-right: 1px solid ${theme.colors.secondary};
     padding:16px;
     display: flex;
     flex-direction: column;
@@ -56,14 +53,14 @@ const ProjectInfo = styled.div`
     
 `
 const ProjectStack = styled.p`
-    
-    border-bottom: 1px solid ${theme.colors.secondaryText};
-    border-left: 1px solid ${theme.colors.secondaryText};
-    border-right: 1px solid ${theme.colors.secondaryText};
+    border-bottom: 1px solid ${theme.colors.secondary};
+    border-left: 1px solid ${theme.colors.secondary};
+    border-right: 1px solid ${theme.colors.secondary};
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
     gap: 16px;
+    color: ${theme.colors.secondary};
 
 `
 const ProjectTitle = styled.h3`
@@ -75,6 +72,7 @@ const ProjectTitle = styled.h3`
 const ProjectDescription = styled.p`
     font-weight: 400;
     font-size: 16px;
+    color: ${theme.colors.secondary};
     
 `
 

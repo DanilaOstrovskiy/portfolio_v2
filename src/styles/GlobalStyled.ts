@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        color: ${theme.colors.primaryText};
+        color: ${theme.colors.primary};
         background-color: ${theme.colors.secondaryBg};
         line-height: 1.2;
     }
@@ -36,8 +36,6 @@ export const GlobalStyle = createGlobalStyle`
     
     section {
         background-color: ${theme.colors.primaryBg};
-        padding-bottom: 110px;
     }
-
 `
 

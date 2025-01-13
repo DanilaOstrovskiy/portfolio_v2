@@ -1,8 +1,7 @@
 import styled, {css, DefaultTheme} from "styled-components";
 import {ButtonSize, ButtonVariant, sizes, variants} from "../button/Button";
-import {theme} from "../../styles/Theme";
 
-type LinkButtonProps = {
+type LinkAsButtonProps = {
     variant?: ButtonVariant;
     size?: ButtonSize;
     disabled?: boolean;
@@ -29,14 +28,14 @@ const linkStyles = css`
     }
     
     // Специальная обработка disabled состояния для ссылки
-    ${(props: LinkButtonProps) => props.disabled && css`
+    ${(props: LinkAsButtonProps) => props.disabled && css`
         pointer-events: none;
         opacity: 0.6;
     `}
 `;
 
 // Создаем компонент ссылки, который наследует стили кнопки
-export const LinkButton = styled.a<LinkButtonProps>`
+export const LinkAsButton = styled.a<LinkAsButtonProps>`
     ${linkStyles}
     ${({ variant = 'primary' }) => variants[variant]}
     ${({ size = 'medium' }) => sizes[size]}
@@ -53,7 +52,7 @@ export const LinkButton = styled.a<LinkButtonProps>`
 `;
 
 // Компонент-обертка для удобного использования
-export const ButtonLink: React.FC<LinkButtonProps> = ({
+export const ButtonAsLink: React.FC<LinkAsButtonProps> = ({
                                                           children,
                                                           disabled,
                                                           href,
@@ -64,7 +63,7 @@ export const ButtonLink: React.FC<LinkButtonProps> = ({
     const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
 
     return (
-        <LinkButton
+        <LinkAsButton
             href={href}
             disabled={disabled}
             target={target}
@@ -72,6 +71,6 @@ export const ButtonLink: React.FC<LinkButtonProps> = ({
             {...props}
         >
             {children}
-        </LinkButton>
+        </LinkAsButton>
     );
 };

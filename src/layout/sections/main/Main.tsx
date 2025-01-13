@@ -38,7 +38,9 @@ export const Main = () => {
 
 
 const StyledMain = styled.section`
-    min-height: 60vh;
+    min-height: 70vh;
+    padding-top:35px;
+    padding-bottom:66px;
 `
 
 
@@ -53,7 +55,7 @@ const Name = styled.h2`
 const MainTitle = styled.h1`
     font-weight: 400;
     font-size: 16px;
-    color: ${theme.colors.secondaryText};
+    color: ${theme.colors.secondary};
     margin: 31px 0 24px 0;
     line-height: 156%;
 
@@ -96,8 +98,8 @@ const Status = styled.span`
     position: relative;
     z-index: 1;
     padding: 6px 6px 6px 35px;
-    border: 1px solid ${theme.colors.secondaryText};
-    color: ${theme.colors.secondaryText};
+    border: 1px solid ${theme.colors.secondary};
+    color: ${theme.colors.secondary};
     max-width: 402px;
     width: 100%;
 
@@ -120,7 +122,7 @@ const Status = styled.span`
 
     b {
         font-weight: inherit;
-        color: ${theme.colors.primaryText};
+        color: ${theme.colors.primary};
     }
 
 `

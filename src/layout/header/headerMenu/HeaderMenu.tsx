@@ -41,16 +41,16 @@ const Link = styled.a`
     font-weight: 400;
     font-size: 16px;
     text-align: center;
-    color: ${theme.colors.secondaryText};
+    color: ${theme.colors.secondary};
     
     span {
         color: ${theme.colors.accent};
     }
     &:hover {
-        color: ${theme.colors.primaryText};
+        color: ${theme.colors.primary};
     }
     &:active {
-        color: ${theme.colors.primaryText};
+        color: ${theme.colors.primary};
         font-weight: 500;
     }
 `

@@ -66,7 +66,7 @@ const Container = styled.div`
 
 const LanguageButton = styled.button<{ $isSelected?: boolean }>`
     background: #282c33;
-    color: ${theme.colors.secondaryText};
+    color: ${theme.colors.secondary};
     display: flex;
     align-items: center;
     justify-content: space-around;

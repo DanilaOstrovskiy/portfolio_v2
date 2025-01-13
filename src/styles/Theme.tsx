@@ -3,8 +3,9 @@ export const theme = {
         primaryBg: "#2c3036",
         secondaryBg: "#282c33",
         accent: "#c778dd",
-        primaryText: "#fafafa",
-        secondaryText: "#abb2bf",
+        primary: "#fafafa",
+        secondary: "#abb2bf",
+        svg: "#ABB2BF",
         button: {
             primary: {
                 defaultBg: "transparent",

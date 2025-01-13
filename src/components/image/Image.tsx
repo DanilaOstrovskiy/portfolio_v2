@@ -18,5 +18,5 @@ const StyledImage = styled.img`
     max-width: 100%;
     height: 201px;
     object-fit: cover;
-    border: 1px solid ${theme.colors.secondaryText};
+    border: 1px solid ${theme.colors.secondary};
 `;

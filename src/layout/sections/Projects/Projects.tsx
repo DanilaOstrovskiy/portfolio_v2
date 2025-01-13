@@ -51,21 +51,22 @@ export const Projects = () => {
                     <SectionTitle title={"projects"} linePosition={400} lineWidth={511}/>
                     <Link href="#">View all ~~&gt;</Link>
                 </FlexWrapper>
-
-                <FlexWrapper justify={"space-around"}>
-                    {projectsData.map((project) => (
-                        <Project
-                            key={project.id}
-                            imgSrc={project.imgSrc}
-                            alt={project.alt}
-                            stack={project.stack}
-                            title={project.title}
-                            description={project.description}
-                            live={project.live}
-                            cached={project.cached}
-                        />
-                    ))}
-                </FlexWrapper>
+                <ProjectsWrapper>
+                    <FlexWrapper justify={"space-around"}>
+                        {projectsData.map((project) => (
+                            <Project
+                                key={project.id}
+                                imgSrc={project.imgSrc}
+                                alt={project.alt}
+                                stack={project.stack}
+                                title={project.title}
+                                description={project.description}
+                                live={project.live}
+                                cached={project.cached}
+                            />
+                        ))}
+                    </FlexWrapper>
+                </ProjectsWrapper>
             </Container>
 
         </StyledProjects>
@@ -74,15 +75,32 @@ export const Projects = () => {
 
 
 const StyledProjects = styled.section`
-    
+    padding-top: 66px;
+    padding-bottom: 66px;
 
+    position: relative;
+
+   
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            border: 1px solid ${theme.colors.secondary};
+            width: 70px;
+            height: 155px;
+            right: 0;
+            top: 30%;
+        
+    }`
+
+const ProjectsWrapper = styled.div`
+    padding-top: 50px
 `
-
 
 const Link = styled.a`
     display: flex;
     justify-content: end;
-    color: ${theme.colors.primaryText};
+    color: ${theme.colors.primary};
     font-weight: 500;
     font-size: 16px;
 `

@@ -7,12 +7,14 @@ import {Skills} from "./layout/sections/skills/Skills";
 import {About} from "./layout/sections/about/About";
 import {Contacts} from "./layout/sections/contacts/Contacts";
 import {Footer} from "./layout/footer/Footer";
+import {SocialSidebar} from "./layout/sidebar/SocialSidebar";
 
 
 
 function App() {
     return (
         <div className="App">
+            <SocialSidebar/>
             <Header/>
             <Main/>
             <QuoteBlock blockquote={"With great power comes great electricity bill"} author={"- Dr. Who"}/>

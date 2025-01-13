@@ -21,8 +21,8 @@ export const Skill = (props: PropsSkillType ) => {
 };
 
 const SkillContainer = styled.div`
-    border:1px solid ${theme.colors.secondaryText};
-    max-width: 178px;
+    border:1px solid ${theme.colors.secondary};
+    width: 196px;
     display: flex;
     flex-direction: column;
 ;
@@ -30,22 +30,21 @@ const SkillContainer = styled.div`
 
 const SkillsTitle = styled.h4`
     color: white;
-    padding: 8px;
-    border: 1px 1px 0 1px 1px solid ${theme.colors.secondaryText};
+    padding: 6px;
+    border: 1px 1px 0 1px 1px solid ${theme.colors.secondary};
 `
 
 const SkillsItems = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    padding: 8px;
+    padding: 6px;
     gap: 8px;
-    border-top: 1px solid ${theme.colors.secondaryText};
+    border-top: 1px solid ${theme.colors.secondary};
 `
 const SkillItem = styled.li`
     font-size: 16px;
     font-weight: 400;
-    color: ${theme.colors.secondaryText};
-    display:inline-block;
+    color: ${theme.colors.secondary};
     list-style-type: none;
     
 `;
