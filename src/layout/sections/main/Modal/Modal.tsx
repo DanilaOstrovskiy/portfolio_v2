@@ -58,6 +58,6 @@ const CloseButton = styled.button`
     color: ${theme.colors.secondary};
     
     &:hover {
-        color: ${theme.colors.accent};
+        color: ${theme.colors.primary};
     }
 `;
