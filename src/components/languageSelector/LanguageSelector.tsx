@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styled from 'styled-components';
 import {theme} from "../../styles/Theme";
-import {Icon} from "../icon/Icon";
+import {Icon} from "../ui/icon/Icon";
 
 type Language = {
     code: string;

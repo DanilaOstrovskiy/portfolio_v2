@@ -1,22 +1,23 @@
 import React, {useState} from 'react';
-import {Icon} from "../icon/Icon";
+import {Icon} from "../ui/icon/Icon";
 import styled from "styled-components";
 import {theme} from "../../styles/Theme";
+import {Link} from "react-router-dom";
 
 export const Logo = () => {
     const [iconId, setIconId] = useState("logo");
 
     return (
-        <Link href=""
+        <StyledLink to="/"
               onMouseEnter={() => setIconId("pink_logo")}
               onMouseLeave={() => setIconId("logo")}>
             <Icon width={"16px"} height={"16px"} iconId={iconId} viewBox={"0 0 53 53"} />
             <span>Elias</span>
-        </Link>
+        </StyledLink>
     );
 
 };
-const Link = styled.a`
+const StyledLink = styled(Link)`
     display: flex;  
     align-items: center;
     &:hover {

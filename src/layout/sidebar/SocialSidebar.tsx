@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import {Icon} from "../../components/icon/Icon";
-import {Container} from "../../components/Container";
+import {Icon} from "../../components/ui/icon/Icon";
+import {Container} from "../../components/shared/Container/Container";
 import {theme} from "../../styles/Theme";
 
 export const SocialSidebar = () => {

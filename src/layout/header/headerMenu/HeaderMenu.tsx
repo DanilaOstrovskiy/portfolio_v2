@@ -2,10 +2,14 @@ import React from 'react';
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {LanguageSelector} from "../../../components/languageSelector/LanguageSelector";
+import {Link} from "react-router-dom";
 
-
+type MenuItem = {
+    name: string;
+    href: string;
+};
 type MenuPropsType = {
-    menuItems: string[];
+    menuItems: MenuItem[];
 }
 
 export const HeaderMenu = (props: MenuPropsType) => {
@@ -17,7 +21,7 @@ export const HeaderMenu = (props: MenuPropsType) => {
                 {menuItems.map((item, i) => {
                     return (
                         <ListItem key={i}>
-                            <Link href={""}><span>#</span>{item}</Link>
+                            <StyledLink to={item.href}><span>#</span>{item.name}</StyledLink>
                         </ListItem>
                     )
                 })}
@@ -36,7 +40,7 @@ const StyledMenu = styled.nav`
     }
 `
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
     font-family: "Fira Code", sans-serif;
     font-weight: 400;
     font-size: 16px;

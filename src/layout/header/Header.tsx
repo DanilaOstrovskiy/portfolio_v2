@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo";
-import {FlexWrapper} from "../../components/flexWrapper/FlexWrapper";
-import {Container} from "../../components/Container";
+import {FlexWrapper} from "../../components/shared/flexWrapper/FlexWrapper";
+import {Container} from "../../components/shared/Container/Container";
 import {HeaderMenu} from "./headerMenu/HeaderMenu";
 import {theme} from "../../styles/Theme";
 
 
 export const Header = () => {
-    const headerMenu = ["home",
-        "works",
-        "about-me",
-        "contacts"]
+    const headerMenu = [
+        {name: "home", href: "/"},
+        {name: "works", href: "works"},
+        {name: "about-me", href: "about"},
+        {name: "contacts", href: "contacts"}
+    ]
+
     return (
         <StyledHeader>
             <Container>

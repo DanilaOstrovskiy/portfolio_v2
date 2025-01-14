@@ -1,28 +1,28 @@
 import './App.css';
 import {Header} from "./layout/header/Header";
-import {Main} from "./layout/sections/main/Main";
-import {QuoteBlock} from "./layout/sections/quoteBlock/QuoteBlock";
-import {Projects} from "./layout/sections/projects/Projects";
-import {Skills} from "./layout/sections/skills/Skills";
-import {About} from "./layout/sections/about/About";
-import {Contacts} from "./layout/sections/contacts/Contacts";
+import {ContactSection} from "./pages/home/contacts/ContactSection";
 import {Footer} from "./layout/footer/Footer";
 import {SocialSidebar} from "./layout/sidebar/SocialSidebar";
-
+import {Route, Routes} from "react-router-dom";
+import Home from "./pages/home/Home";
+import Works from "./pages/works/Works";
+import AboutMe from "./pages/about/AboutMe";
+import Contacts from "./pages/contacts/Contacts";
 
 
 function App() {
     return (
         <div className="App">
-            <SocialSidebar/>
-            <Header/>
-            <Main/>
-            <QuoteBlock blockquote={"With great power comes great electricity bill"} author={"- Dr. Who"}/>
-            <Projects/>
-            <Skills/>
-            <About/>
-            <Contacts/>
-            <Footer/>
+                <SocialSidebar/>
+                <Header/>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route index element={<Home/>}/>
+                    <Route path="/works" element={<Works/>}/>
+                    <Route path="/about" element={<AboutMe/>}/>
+                    <Route path="/contact" element={<Contacts/>}/>
+                </Routes>
+                <Footer/>
         </div>
     );
 }
