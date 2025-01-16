@@ -7,9 +7,18 @@ import {Logo} from "../../components/logo/Logo";
 
 export const Footer = () => {
     const mediaItems = [
-        {iconId: "github"},
-        {iconId: "figma"},
-        {iconId: "discord"}
+        {
+            iconId: "github",
+            link: "https://github.com/"
+        },
+        {
+            iconId: "figma",
+            link: "https://www.figma.com/"
+        },
+        {
+            iconId: "discord",
+            link: "https://discord.com/"
+        }
     ];
 
     return (
@@ -29,7 +38,7 @@ export const Footer = () => {
                         <SocialList>
                             {mediaItems.map((item, index) => (
                                 <SocialItem key={index}>
-                                    <Link> <Icon key={index} iconId={item.iconId} viewBox={"0 0 32 32"} height={"32"}
+                                    <Link href={item.link}> <Icon key={index} iconId={item.iconId} viewBox={"0 0 32 32"} height={"32"}
                                                  width={"32"}/></Link>
 
                                 </SocialItem>
@@ -46,11 +55,10 @@ export const Footer = () => {
 
 const StyledFooter = styled.footer`
     background-color: ${theme.colors.primaryBg};
-    padding-top: 66px;
     padding-bottom: 32px;
     position: relative;
 
-    
+
     &::before {
         content: "";
         width: 100%;
@@ -59,7 +67,7 @@ const StyledFooter = styled.footer`
         position: absolute;
         background-color: ${theme.colors.secondary}
     }
-    
+
 `
 const FooterWrapper = styled.footer`
     display: flex;
@@ -101,7 +109,7 @@ const SocialItem = styled.li`
     color: ${theme.colors.svg};
 `
 const Link = styled.a`
-    color: ${theme.colors.svg};;
+    color: ${theme.colors.svg};
     transition: color 0.3s ease;
 
     &:hover {

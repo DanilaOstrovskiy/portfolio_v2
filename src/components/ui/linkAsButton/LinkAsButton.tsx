@@ -1,12 +1,13 @@
 import styled, {css, DefaultTheme} from "styled-components";
 import {ButtonSize, ButtonVariant, sizes, variants} from "../button/Button";
+import {Link} from "react-router-dom";
 
 type LinkAsButtonProps = {
     variant?: ButtonVariant;
     size?: ButtonSize;
     disabled?: boolean;
     fullWidth?: boolean;
-    href: string;
+    to: string;
     target?: string;
     rel?: string;
     children?: React.ReactNode;
@@ -35,7 +36,7 @@ const linkStyles = css`
 `;
 
 // Создаем компонент ссылки, который наследует стили кнопки
-export const LinkAsButton = styled.a<LinkAsButtonProps>`
+export const LinkAsButton = styled(Link)<LinkAsButtonProps>`
     ${linkStyles}
     ${({ variant = 'primary' }) => variants[variant]}
     ${({ size = 'medium' }) => sizes[size]}
@@ -52,10 +53,10 @@ export const LinkAsButton = styled.a<LinkAsButtonProps>`
 `;
 
 // Компонент-обертка для удобного использования
-export const ButtonAsLink: React.FC<LinkAsButtonProps> = ({
+export const StyledLinkAsButton: React.FC<LinkAsButtonProps> = ({
                                                           children,
                                                           disabled,
-                                                          href,
+                                                          to,
                                                           target,
                                                           ...props
                                                       }) => {
@@ -64,7 +65,7 @@ export const ButtonAsLink: React.FC<LinkAsButtonProps> = ({
 
     return (
         <LinkAsButton
-            href={href}
+            to={to}
             disabled={disabled}
             target={target}
             rel={rel}

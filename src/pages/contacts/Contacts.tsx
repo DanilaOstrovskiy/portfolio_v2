@@ -1,11 +1,18 @@
 import React from 'react';
+import styled from "styled-components";
+import {ContactDetails} from "./contactDetails/ContactDetails";
+import {AllMedia} from "./media/AllMedia";
 
-const Contacts = () => {
+
+export const Contacts = () => {
     return (
-        <div>
-
-        </div>
+        <StyledContacts>
+            <ContactDetails/>
+            <AllMedia/>
+        </StyledContacts>
     );
 };
 
-export default Contacts;
+const StyledContacts = styled.section``
+
+

@@ -8,15 +8,15 @@ export const SocialSidebar = () => {
     const mediaItems = [
         {
             iconId: "github",
-            link: "#"
+            link: "https://github.com/"
         },
         {
             iconId: "dribbble",
-            link: "#"
+            link: "https://dribbble.com/"
         },
         {
             iconId: "figma",
-            link: "#"
+            link: "https://www.figma.com/"
         }
     ];
     return (

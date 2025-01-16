@@ -3,17 +3,19 @@ import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 
 type SectionTitleProps = {
+    prefix: string;
     title: string;
+    showLine?: boolean;
     linePosition?: number; // добавляем опциональный проп для позиции линии
     lineWidth?: number;
 }
 
 export const SectionTitle = (props: SectionTitleProps) => {
-    const {title, linePosition = 100, lineWidth = 511} = props; // значение по умолчанию 100
+    const {title, linePosition = 100, lineWidth = 511, showLine = false, prefix = ""} = props; // значение по умолчанию 100
 
     return (
-        <StyledTitle $linePosition={linePosition} $lineWidth={lineWidth}>
-            <span>#</span>{title}
+        <StyledTitle $linePosition={linePosition} $lineWidth={lineWidth} $showLine={showLine}>
+            <span>{prefix}</span>{title}
         </StyledTitle>
     );
 };
@@ -22,6 +24,7 @@ export const SectionTitle = (props: SectionTitleProps) => {
 type StyledTitleProps = {
     $linePosition: number;
     $lineWidth: number;
+    $showLine: boolean;
 }
 
 const StyledTitle = styled.h2<StyledTitleProps>`
@@ -33,7 +36,7 @@ const StyledTitle = styled.h2<StyledTitleProps>`
     }
     &::after {
         content: "";
-        display: inline-block;
+        display: ${props => props.$showLine ? 'inline-block' : 'none'};
         width: ${props => props.$lineWidth}px;
         height: 1px;
         background-color: ${theme.colors.accent};

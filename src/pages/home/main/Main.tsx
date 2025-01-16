@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import photo from '../../../assets/images/avatar1.webp'
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 import {Container} from "../../../components/shared/Container/Container";
@@ -8,7 +8,6 @@ import {StyledButton} from "../../../components/ui/button/Button";
 import {Icon} from "../../../components/ui/icon/Icon";
 import {Modal} from "./Modal/Modal";
 import {ContactForm} from "./ContactForm/ContactForm";
-
 
 
 export const Main = () => {
@@ -47,7 +46,7 @@ export const Main = () => {
                 </FlexWrapper>
             </Container>
             <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-                <ContactForm onClose={handleCloseModal} />
+                <ContactForm onClose={handleCloseModal}/>
             </Modal>
         </StyledMain>
     );
@@ -56,8 +55,8 @@ export const Main = () => {
 
 const StyledMain = styled.section`
     min-height: 70vh;
-    padding-top:35px;
-    padding-bottom:66px;
+    padding-top: 35px;
+    padding-bottom: 66px;
 `
 
 
@@ -108,6 +107,17 @@ const Photo = styled.img`
     object-fit: cover;
     object-position: -115px -77px;
 `
+const pulse = keyframes`
+    0% {
+        box-shadow: 0 0 0 0 ${theme.colors.accent};
+    }
+    70% {
+        box-shadow: 0 0 0 3px rgba(199, 120, 221, 0); // Уменьшаем размер тени
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(199, 120, 221, 0);
+    }
+`;
 
 const Status = styled.span`
     display: inline-block;
@@ -123,6 +133,7 @@ const Status = styled.span`
     span {
         position: relative;
 
+
         &::before {
             content: "";
             border: 1px solid ${theme.colors.accent};
@@ -134,6 +145,7 @@ const Status = styled.span`
             top: 50%; // позиционирование по центру
             transform: translateY(-50%); // точное центрирование
             z-index: -1;
+            animation: ${pulse} 1.5s infinite;
         }
     }
 

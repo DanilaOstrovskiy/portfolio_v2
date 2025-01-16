@@ -7,7 +7,7 @@ import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 
-const data = [
+export const skillsData = [
     {title: "Languages", items: ["TypeScript", "Lua", "Python", "JavaScript"]},
     {title: "Databases", items: ["SQLite", "PostgresSQL", "Mongo"]},
     {title: "Tools", items: ["VSCode", "Neovim", "Linux", "Figma", "XFCE", "Arch", "Git", "Font Awesome"]},
@@ -16,11 +16,14 @@ const data = [
 ];
 
 
+
+
 export const Skills = () => {
+
     return (
         <StyledSkills>
             <Container>
-                <SectionTitle title={"skills"} linePosition={240} lineWidth={239}/>
+                <SectionTitle prefix="#" title={"skills"} showLine={true} linePosition={240} lineWidth={239}/>
                 <FlexWrapper justify={"space-between"}>
                     <AbstractFigures>
                         <StyledIconWrapper className="first_dots">
@@ -38,9 +41,11 @@ export const Skills = () => {
                     </AbstractFigures>
                     <SkillsWrapper>
                         <SkillsCards>
-                            {data.map((skill, index) => (
+                            {skillsData.map((skill, index) => (
                                 <SkillCard key={index}>
-                                    <Skill key={index} title={skill.title} items={skill.items}/>
+                                    <Skill key={index}
+                                           width={"196px"}
+                                           title={skill.title} items={skill.items}/>
                                 </SkillCard>
                             ))}
                         </SkillsCards>
@@ -72,7 +77,6 @@ const SkillsCards = styled.div`
     gap: 16px;
 
 `
-
 const SkillCard = styled.div`
 
     &:nth-child(1) {
@@ -94,18 +98,9 @@ const SkillCard = styled.div`
     &:nth-child(5) {
         order: 2
     }
-
-
-    //&:nth-child(4) {
-    //    grid-column: 2;
-    //    position: relative;
-    //    transform: translateY(-25px);
-    //}
-    //
-    //&:nth-child(5) {
-    //    grid-column: 3;
-    //}
 `;
+
+
 
 
 const AbstractFigures = styled.div`

@@ -3,17 +3,23 @@ import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {LanguageSelector} from "../../../components/languageSelector/LanguageSelector";
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+
+
 
 type MenuItem = {
     name: string;
-    href: string;
+    path: string;
 };
+
 type MenuPropsType = {
     menuItems: MenuItem[];
 }
 
 export const HeaderMenu = (props: MenuPropsType) => {
     const {menuItems} = props;
+    const {t} = useTranslation()
+
 
     return (
         <StyledMenu>
@@ -21,7 +27,7 @@ export const HeaderMenu = (props: MenuPropsType) => {
                 {menuItems.map((item, i) => {
                     return (
                         <ListItem key={i}>
-                            <StyledLink to={item.href}><span>#</span>{item.name}</StyledLink>
+                            <StyledLink to={`/${item.path}`}><span>#</span>{t(item.name)}</StyledLink>
                         </ListItem>
                     )
                 })}

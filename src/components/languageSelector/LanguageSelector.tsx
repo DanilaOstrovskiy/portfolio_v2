@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import styled from 'styled-components';
 import {theme} from "../../styles/Theme";
 import {Icon} from "../ui/icon/Icon";
+import { useTranslation } from 'react-i18next';
 
 type Language = {
     code: string;
@@ -10,12 +11,17 @@ type Language = {
 
 
 export const LanguageSelector = () => {
+    const { i18n } = useTranslation();
     const [languages] = useState<Language[]>([
         {code: 'EN', isExpanded: false},
         {code: 'RU'},
         {code: 'UA'}
     ]);
-    const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+
+    const [selectedLanguage, setSelectedLanguage] = useState(
+        languages.find(lang => lang.code === i18n.language.toUpperCase()) || languages[0]
+    );
+
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
@@ -31,6 +37,7 @@ export const LanguageSelector = () => {
 
     const handleLanguageSelect = (language: Language) => {
         setSelectedLanguage(language);
+        i18n.changeLanguage(language.code.toLowerCase());
         setIsOpen(false);
     };
 

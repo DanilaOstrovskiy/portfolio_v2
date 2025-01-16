@@ -5,13 +5,14 @@ import {theme} from "../../../../styles/Theme";
 type PropsSkillType = {
     title: string;
     items: string[];
+    width: string;
 }
 
 export const Skill = (props: PropsSkillType ) => {
 
-    const { title, items } = props;
+    const { title, items, width } = props;
     return (
-        <SkillContainer>
+        <SkillContainer $width={width}>
             <SkillsTitle>{title}</SkillsTitle>
             <SkillsItems>{items.map((item, index) => (
                     <SkillItem key={index}>{item}</SkillItem>
@@ -20,9 +21,13 @@ export const Skill = (props: PropsSkillType ) => {
     );
 };
 
-const SkillContainer = styled.div`
+type StyledPropsSkill = {
+    $width: string;
+}
+
+const SkillContainer = styled.div<StyledPropsSkill>`
     border:1px solid ${theme.colors.secondary};
-    width: 196px;
+    width: ${props => props.$width};
     display: flex;
     flex-direction: column;
 ;

@@ -9,7 +9,7 @@ export const ContactSection = () => {
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle title={"contacts"} linePosition={200} lineWidth={127}/>
+                <SectionTitle prefix={"#"} title={"contacts"} showLine={true} linePosition={200} lineWidth={127}/>
                 <ContactsWrapper>
                     <StyledText>
                         I’m interested in freelance opportunities. However, if you have other request or question, don’t
@@ -39,7 +39,7 @@ export const ContactSection = () => {
 
 const StyledContacts = styled.section`
     padding-top: 66px;
-    padding-bottom: 66px;
+    padding-bottom: 144px;
 
     position: relative;
 

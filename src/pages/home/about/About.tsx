@@ -8,11 +8,36 @@ import {LinkAsButton} from "../../../components/ui/linkAsButton/LinkAsButton";
 import {theme} from "../../../styles/Theme";
 import {Icon} from "../../../components/ui/icon/Icon";
 
-export const About = () => {
+interface DecoratorStyles {
+    width: string;
+    height: string;
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+    border?: string;
+    backgroundImage?: string;
+    backgroundSize?: string;
+    backgroundColor?: string;
+}
+
+interface AboutProps {
+    showButton?: boolean;
+    showLine?: boolean;
+    beforeDecorator?: DecoratorStyles;
+    afterDecorator?: DecoratorStyles;
+}
+
+export const About: React.FC<AboutProps> = ({
+                                                showButton,
+                                                beforeDecorator,
+                                                afterDecorator,
+                                                showLine,
+                                            }) => {
     return (
-        <StyledAbout>
+        <StyledAbout $beforeDecorator={beforeDecorator} $afterDecorator={afterDecorator}>
             <Container>
-                <SectionTitle title={"about-me"} lineWidth={326} linePosition={300}/>
+                <SectionTitle prefix={"#"} title={"about-me"} showLine={showLine} lineWidth={326} linePosition={300}/>
                 <FlexWrapper justify={'space-between'}>
                     <StyledDescription>
                         <StyledParagraph>Hello, i’m Elias!</StyledParagraph>
@@ -29,7 +54,8 @@ export const About = () => {
                             strive to
                             learn about the newest technologies and frameworks</StyledParagraph>
                         <ButtonWrapper>
-                            <LinkAsButton href="#" variant={"primary"} size={"small"}>Read more -&gt;</LinkAsButton>
+                            {showButton && (<LinkAsButton to="/about" variant={"primary"} size={"small"}>Read more
+                                -&gt;</LinkAsButton>)}
                         </ButtonWrapper>
                     </StyledDescription>
 
@@ -43,44 +69,51 @@ export const About = () => {
                             <Icon iconId={"dots5x4"} viewBox="0 0 104 56" width={"104"} height={"56"}></Icon>
                         </IconWrapper>
                     </PhotoWrapper>
-
-
                 </FlexWrapper>
             </Container>
         </StyledAbout>
     );
 };
 
-const StyledAbout = styled.section`
+const StyledAbout = styled.section<{
+    $beforeDecorator?: DecoratorStyles;
+    $afterDecorator?: DecoratorStyles;
+}>`
     padding-top: 66px;
     padding-bottom: 66px;
-
     position: relative;
-    
-    &::before {
-        content: "";
-        display: inline-block;
-        position: absolute;
-        border: 1px solid ${theme.colors.secondary};
-        width: 70px;
-        height: 155px;
-        left: 0;
-        top: 30%;
-    }
 
+    ${(props: { $beforeDecorator?: DecoratorStyles }) => props.$beforeDecorator && `
+        &::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            width: ${props.$beforeDecorator.width};
+            height: ${props.$beforeDecorator.height};
+            left: ${props.$beforeDecorator.left};
+            top: ${props.$beforeDecorator.top};
+            border: ${props.$beforeDecorator.border};
+            background-color: ${props.$beforeDecorator.backgroundColor};
+            background-image: ${props.$beforeDecorator.backgroundImage};
+            background-size: ${props.$beforeDecorator.backgroundSize};
+        }
+    `}
+
+    ${(props: { $afterDecorator?: DecoratorStyles }) => props.$afterDecorator && `
         &::after {
             content: "";
             display: inline-block;
             position: absolute;
-            width: 80px;
-            height: 103px;
-            right: 0;
-            top: 60%;
-
-            background-color: transparent;
-            background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
-            background-size: 20px 20px;
+            width: ${props.$afterDecorator.width};
+            height: ${props.$afterDecorator.height};
+            right: ${props.$afterDecorator.right};
+            top: ${props.$afterDecorator.top};
+            border: ${props.$afterDecorator.border};
+            background-color: ${props.$afterDecorator.backgroundColor};
+            background-image: ${props.$afterDecorator.backgroundImage};
+            background-size: ${props.$afterDecorator.backgroundSize};
         }
+    `}
 `;
 
 const StyledDescription = styled.div`
@@ -96,12 +129,15 @@ const Photo = styled.img`
     width: 340px;
     object-fit: cover;
     z-index: 0;
+
+
 `
 const PhotoWrapper = styled.div`
     position: relative;
     transform: translateY(-40px);
     margin-bottom: -40px;
-    span{
+
+    span {
         &::before {
             content: "";
             display: inline-block;
@@ -114,6 +150,9 @@ const PhotoWrapper = styled.div`
             bottom: 5px
         }
     }
+
+
+
 
 `
 
@@ -128,10 +167,10 @@ const IconWrapper = styled.div`
 
     &.dots5x4 {
         z-index: 2;
-
         right: 15px;
         top: 278px;
     }
+
 `
 
 

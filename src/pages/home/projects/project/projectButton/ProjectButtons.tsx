@@ -1,28 +1,39 @@
 import styled from "styled-components";
-import {LinkAsButton} from "../../../../../components/ui/linkAsButton/LinkAsButton";
+import {StyledLinkAsButton} from "../../../../../components/ui/linkAsButton/LinkAsButton";
 
+type ProjectButtonsProps = {
+    primaryLink?: string,
+    secondaryLink?: string,
+    primaryTitle?: string,
+    secondaryTitle?: string
+}
 
-export const ProjectButtons = ({live, cached}: { live?: string, cached?: string }) => {
+export const ProjectButtons = ({
+                                   primaryLink,
+                                   secondaryLink,
+                                   primaryTitle ,
+                                   secondaryTitle
+                               }: ProjectButtonsProps) => {
     return (
 
         <ButtonsWrapper>
-
-                <LinkAsButton
-                    href={live || "/some-path"}
+            {primaryLink && primaryTitle && (
+                <StyledLinkAsButton
+                    to={primaryLink}
                     variant="primary"
                     size="small"
                     target="_blank">
-                    Live &lt;~&gt;
-                </LinkAsButton>
-
-                {cached && (
-                    <LinkAsButton
-                        href={cached}
+                    {primaryTitle} &lt;~&gt;
+                </StyledLinkAsButton>
+            )}
+            {secondaryLink && secondaryTitle && (
+                    <StyledLinkAsButton
+                        to={secondaryLink}
                         variant="secondary"
                         size="small"
                         target="_blank">
-                        Cached &gt;=
-                    </LinkAsButton>
+                        {secondaryTitle} &gt;=
+                    </StyledLinkAsButton>
                 )}
 
         </ButtonsWrapper>

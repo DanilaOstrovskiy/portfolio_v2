@@ -8,6 +8,7 @@ import project_3 from "../../../assets/images/proj3.webp";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
+import {Link} from "react-router-dom";
 
 const projectsData = [
     {
@@ -17,8 +18,10 @@ const projectsData = [
         stack: "HTML SCSS Python Flask",
         title: "ChertNodes",
         description: "Minecraft servers hosting",
-        live: "#",
-        cached: "#",
+        liveSource: "#",
+        cachedSource: "#",
+        primaryButtonTitle:"Live",
+        secondaryButtonTitle:"Cached"
     },
     {
         id: 2,
@@ -27,9 +30,10 @@ const projectsData = [
         stack: "React Express Discord.js Node.js HTML SCSS Python Flask",
         title: "ProtectX",
         description: "Discord anti-crash bot",
-        live: "#",
-        cached: "",
-
+        liveSource: "#",
+        cachedSource: "",
+        primaryButtonTitle:"Live",
+        secondaryButtonTitle:""
     },
     {
         id: 3,
@@ -38,8 +42,10 @@ const projectsData = [
         stack: "CSS Express Node.js",
         title: "Kahoot Answers Viewer",
         description: "Get answers to your Kahoot quiz",
-        live: "#",
-        cached: "",
+        liveSource: "#",
+        cachedSource: "",
+        primaryButtonTitle:"Live",
+        secondaryButtonTitle:""
     },
 ];
 
@@ -48,11 +54,11 @@ export const Projects = () => {
         <StyledProjects>
             <Container>
                 <FlexWrapper align={"center"} justify={'space-between'}>
-                    <SectionTitle title={"projects"} linePosition={400} lineWidth={511}/>
-                    <Link href="#">View all ~~&gt;</Link>
+                    <SectionTitle prefix="#" title={"projects"} showLine={true} linePosition={400} lineWidth={511}/>
+                    <StyledLink to="/works">View all ~~&gt;</StyledLink>
                 </FlexWrapper>
                 <ProjectsWrapper>
-                    <FlexWrapper justify={"space-around"}>
+                    <FlexWrapper justify={"space-between"}>
                         {projectsData.map((project) => (
                             <Project
                                 key={project.id}
@@ -61,8 +67,11 @@ export const Projects = () => {
                                 stack={project.stack}
                                 title={project.title}
                                 description={project.description}
-                                live={project.live}
-                                cached={project.cached}
+                                demoLink={project.liveSource}
+                                sourceLink={project.cachedSource}
+                                primaryButtonTitle={project.primaryButtonTitle}
+                                secondaryButtonTitle={project.secondaryButtonTitle}
+
                             />
                         ))}
                     </FlexWrapper>
@@ -97,7 +106,7 @@ const ProjectsWrapper = styled.div`
     padding-top: 50px
 `
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
     display: flex;
     justify-content: end;
     color: ${theme.colors.primary};
