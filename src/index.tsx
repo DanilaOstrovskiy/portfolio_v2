@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {GlobalStyle} from "./styles/GlobalStyled";
 import {BrowserRouter} from "react-router-dom";
-import './i18n/i18n';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n/i18n';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -13,8 +14,10 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <BrowserRouter>
+            <I18nextProvider i18n={i18n}>
             <GlobalStyle/>
             <App/>
+            </I18nextProvider>
         </BrowserRouter>
     </React.StrictMode>
 );

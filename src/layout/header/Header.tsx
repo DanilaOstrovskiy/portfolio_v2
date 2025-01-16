@@ -9,16 +9,16 @@ import {theme} from "../../styles/Theme";
 
 export const Header = () => {
     const headerMenu = [
-        { name: "home", path: "" },
-        { name: "about", path: "about" },
-        { name: "projects", path: "works" },
-        { name: "contacts", path: "contacts" }
+        { name: 'menu.home', path: 'home' },
+        { name: 'menu.about', path: 'about' },
+        { name: 'menu.projects', path: 'works' },
+        { name: 'menu.contacts', path: 'contacts' }
     ]
 
     return (
         <StyledHeader>
             <Container>
-                <FlexWrapper justify={'space-between'} align={'flex-end'} >
+                <FlexWrapper justify={'space-between'} align={'flex-end'}>
                     <Logo />
                     <HeaderMenu menuItems={headerMenu}/>
                 </FlexWrapper>

@@ -5,8 +5,8 @@ const ru = {
             about: "обо мне",
             projects: "проекты",
             contacts: "контакты"
-        }
-    }
+        }}
+
 };
 
 export default ru;

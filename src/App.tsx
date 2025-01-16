@@ -7,8 +7,6 @@ import Home from "./pages/home/Home";
 import Works from "./pages/works/Works";
 import AboutMe from "./pages/about/AboutMe";
 import {Contacts} from "./pages/contacts/Contacts";
-import './i18n/i18n';
-
 
 
 function App() {

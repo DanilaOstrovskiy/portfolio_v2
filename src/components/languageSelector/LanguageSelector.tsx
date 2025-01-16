@@ -26,6 +26,13 @@ export const LanguageSelector = () => {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const currentLanguage = languages.find(lang => lang.code === i18n.language.toUpperCase());
+        if (currentLanguage) {
+            setSelectedLanguage(currentLanguage);
+        }
+    }, [i18n.language, languages]);
+
+    useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (ref.current && !ref.current.contains(event.target as Node)) {
                 setIsOpen(false);

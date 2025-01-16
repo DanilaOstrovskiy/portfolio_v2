@@ -7,9 +7,9 @@ import ua from './locales/ua';
 
 
 const resources = {
-    EN: en,
-    RU: ru,
-    UA: ua
+    en: en,
+    ru: ru,
+    ua: ua
 } as const;
 
 i18n
@@ -17,7 +17,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        fallbackLng: 'EN',
+        fallbackLng: 'ua',
         interpolation: {
             escapeValue: false
         }
