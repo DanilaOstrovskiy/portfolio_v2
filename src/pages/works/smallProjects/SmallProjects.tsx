@@ -4,91 +4,95 @@ import {SectionTitle} from "../../../components/ui/sectionTitle/SectionTitle";
 import {Project} from "../../home/projects/project/Project";
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
+import {useTranslation} from "react-i18next";
 
 export const SmallProjects = () => {
+    const {t} = useTranslation();
     const smallProjects = [
         {
             id: 1,
             stack: "Discord.js TS JS",
             title: "Bot boilerplate",
-            description: "Start creating scalable discord.js bot with typescript in seconds",
+            description: t('projects.smallApps.items.botBoilerplate.description'),
             liveSource: "#",
             cachedSource: "https://github.com/",
-            primaryButtonTitle: "Github",
-            secondaryButtonTitle: ""
+            primaryButtonTitle: t('projects.smallApps.items.botBoilerplate.buttons.live'),
+            secondaryButtonTitle: t('projects.smallApps.items.botBoilerplate.buttons.cached')
         },
         {
             id: 2,
             stack: "VUE CSS JS",
             title: "My blog",
-            description: "Front-end of my future blog website written in vue",
+            description: t('projects.smallApps.items.myBlog.description'),
             liveSource: "#",
             cachedSource: "https://github.com/",
-            primaryButtonTitle: "Github",
-            secondaryButtonTitle: ""
+            primaryButtonTitle: t('projects.smallApps.items.myBlog.buttons.live'),
+            secondaryButtonTitle: t('projects.smallApps.items.myBlog.buttons.cached')
         },
         {
             id: 3,
             stack: "Figma",
             title: "Chess pro",
-            description: "Figma landing page about service for viewing chess tournaments",
+            description: t('projects.smallApps.items.chessPro.description'),
             liveSource: "#",
             cachedSource: "https://figma.com/",
-            primaryButtonTitle: "Figma",
-            secondaryButtonTitle: ""
+            primaryButtonTitle: t('projects.smallApps.items.chessPro.buttons.live'),
+            secondaryButtonTitle: t('projects.smallApps.items.chessPro.buttons.cached')
         },
         {
             id: 4,
             stack: "Figma",
             title: "Crash protect website",
-            description: "Figma template for website about anti-raid, anti-crash discord bot",
+            description: t('projects.smallApps.items.crashProtectWebsite.description'),
             liveSource: "#",
             cachedSource: "https://figma.com/",
-            primaryButtonTitle: "Figma",
-            secondaryButtonTitle: ""
+            primaryButtonTitle: t('projects.smallApps.items.crashProtectWebsite.buttons.live'),
+            secondaryButtonTitle: t('projects.smallApps.items.crashProtectWebsite.buttons.cached')
         },
         {
             id: 5,
             stack: "HTML CSS",
             title: "CSS experiments",
-            description: "Collection of my different little projects in css",
+            description: t('projects.smallApps.items.cssExperiments.description'),
             liveSource: "https://example.com/",
             cachedSource: "#",
-            primaryButtonTitle: "Live",
-            secondaryButtonTitle: ""
+            primaryButtonTitle: t('projects.smallApps.items.cssExperiments.buttons.live'),
+            secondaryButtonTitle: t('projects.smallApps.items.cssExperiments.buttons.cached')
         },
         {
             id: 6,
             stack: "Lua NeoVim",
             title: "Web Dev nvim config",
-            description: "Config for neovim perfect for web developer",
+            description: t('projects.smallApps.items.webDev.description'),
             liveSource: "#",
             cachedSource: "https://github.com/",
-            primaryButtonTitle: "Github",
+            primaryButtonTitle: t('projects.smallApps.items.webDev.buttons.live')
         },
         {
             id: 7,
             stack: "Python Quart HTML",
             title: "Ooku",
-            description: "Simple link shortener with auth",
+            description: t('projects.smallApps.items.ooku.description'),
             liveSource: "#",
             cachedSource: "#",
-            primaryButtonTitle: "live",
+            primaryButtonTitle: t('projects.smallApps.items.ooku.buttons.live')
         },
         {
             id: 8,
             stack: "Figma",
             title: "School website",
-            description: "Figma template website for my school",
+            description: t('projects.smallApps.items.schoolWebsite.description'),
             liveSource: "#",
             cachedSource: "https://figma.com/",
-            primaryButtonTitle: "Figma",
-        }]
+            primaryButtonTitle: t('projects.smallApps.items.schoolWebsite.buttons.live')
+        }
+    ];
+
     return (
         <StyledSmallProjects>
             <Container>
                 <span className="decorator"/>
-                <SectionTitle prefix={"#"} title={"small-projects"}/>
+                <SectionTitle prefix={"#"} title={t('projects.smallApps.title')}/>
                 <ProjectsWrapper>
                     {smallProjects.map((project) => (
                         <Project

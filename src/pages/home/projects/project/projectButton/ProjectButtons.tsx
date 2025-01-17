@@ -23,7 +23,7 @@ export const ProjectButtons = ({
                     variant="primary"
                     size="small"
                     target="_blank">
-                    {primaryTitle} &lt;~&gt;
+                    {primaryTitle}
                 </StyledLinkAsButton>
             )}
             {secondaryLink && secondaryTitle && (
@@ -32,7 +32,7 @@ export const ProjectButtons = ({
                         variant="secondary"
                         size="small"
                         target="_blank">
-                        {secondaryTitle} &gt;=
+                        {secondaryTitle}
                     </StyledLinkAsButton>
                 )}
 

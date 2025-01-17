@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import {useForm, SubmitHandler} from "react-hook-form";
-import {theme} from "../../../../styles/Theme";
-import {StyledButton} from "../../../../components/ui/button/Button";
+import {theme} from "../../styles/Theme";
+import {StyledButton} from "../ui/button/Button";
+import {useTranslation} from "react-i18next";
 
 
 interface ContactFormProps {
@@ -23,6 +24,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
         formState: {errors}
     } = useForm<FormInputs>();
 
+    const {t} = useTranslation();
+
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
         console.log(data);
         // Здесь будет логика отправки формы
@@ -35,11 +38,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                 <FormGroup>
 
                     <Input
-                        {...register("name", {required: "Name is required"})}
+                        {...register("name", {required: t("common.contactForm.errorsMassage.nameRequired")})}
                         type="text" placeholder={" "}
 
                     />
-                    <Label>Name</Label>
+                    <Label>{t('common.contactForm.name')}</Label>
                     {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>
                     }
                 </FormGroup>
@@ -47,15 +50,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                 <FormGroup>
                     <Input
                         {...register("email", {
-                            required: "Email is required",
+                            required: t("common.contactForm.errorsMassage.emailRequired"),
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: "Invalid email address"
+                                message: t("common.contactForm.errorsMassage.invalidEmail")
                             }
                         })}
                         type="email" placeholder={""}
                     />
-                    <Label>Email</Label>
+                    <Label>{t('common.contactForm.email')}</Label>
                     {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
                 </FormGroup></NameEmailWrapper>
 
@@ -63,36 +66,36 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
 
                 <Input
                     {...register("title", {
-                        required: "Title is required",
+                        required: t('common.contactForm.errorsMassage.required'),
                         minLength: {
                             value: 3,
-                            message: "Title must be at least 3 characters"
+                            message: t("common.contactForm.errorsMassage.minLength")
                         },
                         maxLength: {
                             value: 50,
-                            message: "Title cannot exceed 50 characters"
+                            message: t("common.contactForm.errorsMassage.maxLength")
                         },
                         pattern: {
                             value: /^[a-zA-Z0-9\s.,!?-]+$/,
-                            message: "Title can only contain letters, numbers, spaces and basic punctuation"
+                            message: t("common.contactForm.errorsMassage.pattern")
                         }
                     })}
                     type="text" placeholder={" "}
                 />
-                <Label>Title</Label>
+                <Label>{t('common.contactForm.title')}</Label>
                 {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
             </FormGroup>
 
             <FormGroup>
                 <Textarea
-                    {...register("message", {required: "Message is required"})}
+                    {...register("message", {required: t("common.contactForm.errorsMassage.messageRequired")})}
                     placeholder=" "
                 />
                 {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
-                <TextareaLabel>Message</TextareaLabel>
+                <TextareaLabel>{t('common.contactForm.message')}</TextareaLabel>
             </FormGroup>
             <ButtonWrapper>
-                <StyledButton type="submit" size={"small"}>Send</StyledButton>
+                <StyledButton type="submit" size={"small"}>{t('common.contactForm.send')}</StyledButton>
             </ButtonWrapper>
 
         </Form>

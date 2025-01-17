@@ -4,8 +4,10 @@ import {Icon} from "../../components/ui/icon/Icon";
 import {theme} from "../../styles/Theme";
 import {Container} from "../../components/shared/Container/Container";
 import {Logo} from "../../components/logo/Logo";
+import {useTranslation} from "react-i18next";
 
 export const Footer = () => {
+    const {t} = useTranslation();
     const mediaItems = [
         {
             iconId: "github",
@@ -31,10 +33,10 @@ export const Footer = () => {
                             <StyledEmail>elias@elias-dev.ml</StyledEmail>
                         </LogoEmailWrapper>
 
-                        <StyledDescription>Web designer and front-end developer</StyledDescription>
+                        <StyledDescription>{t('common.footer.description')}</StyledDescription>
                     </FooterSection>
                     <SocialMediaWrapper>
-                        <MediaTitle>Media</MediaTitle>
+                        <MediaTitle>{t('common.footer.media')}</MediaTitle>
                         <SocialList>
                             {mediaItems.map((item, index) => (
                                 <SocialItem key={index}>

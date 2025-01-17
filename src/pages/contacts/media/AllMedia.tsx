@@ -5,12 +5,15 @@ import {Icon} from "../../../components/ui/icon/Icon";
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
+import {useTranslation} from "react-i18next";
 
 export const AllMedia = () => {
+
+    const {t} = useTranslation();
     return (
         <MediaStyled>
             <Container>
-                <SectionTitle prefix={"/"} title={"all-media"}/>
+                <SectionTitle prefix={"/"} title={t('contacts.allMedia.title')}/>
                 <MediaWrapper>
                     <FlexWrapper>
                         <MediaContactList>

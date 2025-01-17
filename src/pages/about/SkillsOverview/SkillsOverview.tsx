@@ -2,11 +2,15 @@ import React from 'react';
 import {SectionTitle} from "../../../components/ui/sectionTitle/SectionTitle";
 import styled from "styled-components";
 import {Skill} from "../../home/skills/skill/Skill";
-import {skillsData} from "../../home/skills/Skills";
+
 import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
+import {getSkillsData} from "../../home/skills/Skills";
+import {useTranslation} from "react-i18next";
 
 const SkillsOverview = () => {
+    const {t} = useTranslation();
+    const skills = getSkillsData(t)
     return (
 
         <StyledSkills>
@@ -15,7 +19,7 @@ const SkillsOverview = () => {
                 <SkillsWrapper>
                     <SkillsCards>
                         {
-                            skillsData.map((skill, index) => (
+                            skills.map((skill, index) => (
                                 <SkillCard key={index}>
                                     <Skill width={"192px"}
                                         key={index} title={skill.title} items={skill.items}/>

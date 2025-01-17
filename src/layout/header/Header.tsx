@@ -9,10 +9,10 @@ import {theme} from "../../styles/Theme";
 
 export const Header = () => {
     const headerMenu = [
-        { name: 'menu.home', path: 'home' },
-        { name: 'menu.about', path: 'about' },
-        { name: 'menu.projects', path: 'works' },
-        { name: 'menu.contacts', path: 'contacts' }
+        { name: 'common.menu.home', path: 'home' },
+        { name: 'common.menu.about', path: 'about' },
+        { name: 'common.menu.projects', path: 'works' },
+        { name: 'common.menu.contacts', path: 'contacts' }
     ]
 
     return (

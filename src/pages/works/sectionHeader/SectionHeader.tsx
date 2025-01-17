@@ -24,7 +24,7 @@ const SectionHeader = (props: SectionHeaderPropsType) => {
 };
 
 const StyledHeaderSection = styled.section`
-    padding-top: 32px;
+    //padding-top: 32px;
     padding-bottom: 40px;
 
 `

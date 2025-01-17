@@ -4,20 +4,21 @@ import {SectionTitle} from "../../../components/ui/sectionTitle/SectionTitle";
 import {Icon} from "../../../components/ui/icon/Icon";
 import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
+import {useTranslation} from "react-i18next";
 
 export const ContactSection = () => {
+    const {t} = useTranslation();
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle prefix={"#"} title={"contacts"} showLine={true} linePosition={200} lineWidth={127}/>
+                <SectionTitle prefix={"#"} title={t('home.contacts.title')} showLine={true} linePosition={200} lineWidth={127}/>
                 <ContactsWrapper>
                     <StyledText>
-                        I’m interested in freelance opportunities. However, if you have other request or question, don’t
-                        hesitate to contact me
+                        {t('home.contacts.text')}
                     </StyledText>
                     <ContactWrapper>
                         <StyledContactTitle>
-                            Message me here
+                            {t('home.contacts.messageTitle')}
                         </StyledContactTitle>
                         <StyledContactList>
                             <StyledContactItem>

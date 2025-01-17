@@ -5,22 +5,24 @@ import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {Icon} from "../../../components/ui/icon/Icon";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
+import {useTranslation} from "react-i18next";
 
 export const Facts = () => {
+    const {t} = useTranslation();
     return (
         <StyledFacts>
             <Container>
-                <SectionTitle prefix={"#"} title={"my-fan-facts"} showLine={false}/>
+                <SectionTitle prefix={"#"} title={t('about.facts.title')} showLine={false}/>
                 <FlexWrapper justify={'space-between'}>
                     <StyledContainer>
                         <StyledList>
-                            <StyledItem>I like winter more than summer</StyledItem>
-                            <StyledItem>I often bike with my friends</StyledItem>
-                            <StyledItem>I like <span>pizza</span> and <span>pasta</span></StyledItem>
-                            <StyledItem>I was in <span>Egypt</span>, <span>Poland</span> and <span>Turkey</span></StyledItem>
-                            <StyledItem>My favorite movie is <span>The Green Mile</span></StyledItem>
-                            <StyledItem>I am still in school</StyledItem>
-                            <StyledItem>I don’t have any siblings</StyledItem>
+                            <StyledItem>{t('about.facts.firstFact')}</StyledItem>
+                            <StyledItem>{t('about.facts.secondFact')}</StyledItem>
+                            <StyledItem>{t('about.facts.thirdFact.like')} <span>{t('about.facts.thirdFact.pizza')}</span>{t('about.facts.thirdFact.and')} <span>{t('about.facts.thirdFact.pasta')}</span></StyledItem>
+                            <StyledItem>{t('about.facts.fourthFact.was')} <span>{t('about.facts.fourthFact.egypt')}</span>, <span>{t('about.facts.fourthFact.poland')}</span> {t('about.facts.fourthFact.and')}<span>{t('about.facts.fourthFact.turkey')}</span></StyledItem>
+                            <StyledItem>{t('about.facts.fifthFact.favoriteMovie')}<span>{t('about.facts.fifthFact.greenMile')}</span></StyledItem>
+                            <StyledItem>{t('about.facts.sixthFact')}</StyledItem>
+                            <StyledItem>{t('about.facts.seventhFact')}</StyledItem>
                         </StyledList>
                     </StyledContainer>
                     <AbstractFiguresWrapper>

@@ -9,57 +9,82 @@ import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import {TFunction} from "i18next";
 
-const projectsData = [
+
+export interface IProject {
+    id: number;
+    imgSrc: string;
+    alt: string;
+    stack: string;
+    title: string;
+    description: string;
+    liveSource: string;
+    cachedSource: string;
+    primaryButtonTitle: string;
+    secondaryButtonTitle: string;
+}
+
+export interface IProjectProps extends IProject {
+    key: number;
+    demoLink: string;
+    sourceLink: string;
+}
+
+const getProjectsData = (t: TFunction): IProject[] => [
     {
         id: 1,
         imgSrc: project_1,
-        alt: "ChertNodes",
+        alt: t('home.projects.items.chertNodes.alt'),
         stack: "HTML SCSS Python Flask",
-        title: "ChertNodes",
-        description: "Minecraft servers hosting",
+        title: t('home.projects.items.chertNodes.title'),
+        description: t('home.projects.items.chertNodes.description'),
         liveSource: "#",
         cachedSource: "#",
-        primaryButtonTitle:"Live",
-        secondaryButtonTitle:"Cached"
+        primaryButtonTitle: t('home.projects.items.chertNodes.buttons.live'),
+        secondaryButtonTitle: t('home.projects.items.chertNodes.buttons.cached')
     },
     {
         id: 2,
         imgSrc: project_2,
-        alt: "ProtectX",
+        alt: t('home.projects.items.protectX.alt'),
         stack: "React Express Discord.js Node.js HTML SCSS Python Flask",
-        title: "ProtectX",
-        description: "Discord anti-crash bot",
+        title: t('home.projects.items.protectX.title'),
+        description: t('home.projects.items.protectX.description'),
         liveSource: "#",
         cachedSource: "",
-        primaryButtonTitle:"Live",
-        secondaryButtonTitle:""
+        primaryButtonTitle: t('home.projects.items.protectX.buttons.live'),
+        secondaryButtonTitle: ""
     },
     {
         id: 3,
         imgSrc: project_3,
-        alt: "Kahoot Answers Viewer",
+        alt: t('home.projects.items.kahoot.alt'),
         stack: "CSS Express Node.js",
-        title: "Kahoot Answers Viewer",
-        description: "Get answers to your Kahoot quiz",
+        title: t('home.projects.items.kahoot.title'),
+        description: t('home.projects.items.kahoot.description'),
         liveSource: "#",
         cachedSource: "",
-        primaryButtonTitle:"Live",
-        secondaryButtonTitle:""
+        primaryButtonTitle: t('home.projects.items.kahoot.buttons.live'),
+        secondaryButtonTitle: ""
     },
 ];
 
-export const Projects = () => {
+export const Projects = () =>
+{
+    const {t} = useTranslation();
+    const projects = getProjectsData(t);
     return (
         <StyledProjects>
             <Container>
                 <FlexWrapper align={"center"} justify={'space-between'}>
-                    <SectionTitle prefix="#" title={"projects"} showLine={true} linePosition={400} lineWidth={511}/>
-                    <StyledLink to="/works">View all ~~&gt;</StyledLink>
+                    <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={400} lineWidth={511}/>
+                    <StyledLink to="/works">{t('home.projects.viewAll')}</StyledLink>
                 </FlexWrapper>
                 <ProjectsWrapper>
                     <FlexWrapper justify={"space-between"}>
-                        {projectsData.map((project) => (
+                        {projects.map((project:IProject) => (
                             <Project
                                 key={project.id}
                                 imgSrc={project.imgSrc}

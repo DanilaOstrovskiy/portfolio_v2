@@ -5,28 +5,28 @@ import {Icon} from "../../../components/ui/icon/Icon";
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 import {Container} from "../../../components/shared/Container/Container";
+import {useTranslation} from "react-i18next";
 
 export const ContactDetails = () => {
+    const {t} = useTranslation();
     return (
         <StyledContactDetails>
             <Container>
-                <SectionHeader prefix={"/"} title={"contacts"} description={"Who am i?"}/>
+                <SectionHeader prefix={"/"} title= {t('contacts.title')} description={t('contacts.description')}/>
                 <FlexWrapper justify={'space-between'}>
                     <StyledText>
-                        I’m interested in freelance opportunities. However, if you have other request or question,
-                        don’t
-                        hesitate to contact me
+                        {t('contacts.text')}
                     </StyledText>
                     <InfoWrapper>
                         <SupportWrapper>
                             <StyledContactTitle>
-                                Support me here
+                                {t('contacts.support')}
                             </StyledContactTitle>
                             <SupportNumber>4149500120690030</SupportNumber>
                         </SupportWrapper>
                         <ContactWrapper>
                             <StyledContactTitle>
-                                Message me here
+                                {t('contacts.message')}
                             </StyledContactTitle>
                             <StyledContactList>
                                 <StyledContactItem>

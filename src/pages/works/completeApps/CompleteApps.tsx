@@ -9,76 +9,85 @@ import {Project} from "../../home/projects/project/Project";
 import {Container} from "../../../components/shared/Container/Container";
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
+import {TFunction} from "i18next";
+import {IProject} from "../../home/projects/Projects";
+import {useTranslation} from "react-i18next";
+
+
+const getProjectsData = (t: TFunction): IProject[] => [
+    {
+        id: 1,
+        imgSrc: project_1,
+        alt: t('projects.completeApps.items.chertNodes.alt'),
+        stack: "HTML SCSS Python Flask",
+        title: t('projects.completeApps.items.chertNodes.title'),
+        description: t('projects.completeApps.items.chertNodes.description'),
+        liveSource: "#",
+        cachedSource: "#",
+        primaryButtonTitle: t('projects.completeApps.items.chertNodes.buttons.live'),
+        secondaryButtonTitle: t('projects.completeApps.items.chertNodes.buttons.cached')
+    },
+    {
+        id: 2,
+        imgSrc: project_3,
+        alt: t('projects.completeApps.items.kahoot.alt'),
+        stack: "CSS Express Node.js",
+        title: t('projects.completeApps.items.kahoot.title'),
+        description: t('projects.completeApps.items.kahoot.description'),
+        liveSource: "#",
+        cachedSource: "#",
+        primaryButtonTitle: t('projects.completeApps.items.kahoot.buttons.live'),
+        secondaryButtonTitle: ""
+    },
+    {
+        id: 3,
+        imgSrc: project_2,
+        alt: t('projects.completeApps.items.protectX.alt'),
+        stack: "React Express Discord.js Node.js HTML SCSS Python Flask",
+        title: t('projects.completeApps.items.protectX.title'),
+        description: t('projects.completeApps.items.protectX.description'),
+        liveSource: "#",
+        cachedSource: "#",
+        primaryButtonTitle: "",
+        secondaryButtonTitle: t('projects.completeApps.items.protectX.buttons.cached')
+    },
+    {
+        id: 4,
+        imgSrc: project_4,
+        alt: t('projects.completeApps.items.kotikBot.title'),
+        stack: "HTML CSS JS",
+        title: t('projects.completeApps.items.kotikBot.title'),
+        description: t('projects.completeApps.items.kotikBot.description'),
+        liveSource: "#",
+        cachedSource: "#",
+        primaryButtonTitle: t('projects.completeApps.items.kotikBot.buttons.live'),
+        secondaryButtonTitle: ""
+    },
+    {
+        id: 5,
+        imgSrc: project_5,
+        alt: t('projects.completeApps.items.portfolio.title'),
+        stack: "Vue TS Less",
+        title: t('projects.completeApps.items.portfolio.title'),
+        description: t('projects.completeApps.items.portfolio.description'),
+        liveSource: "#",
+        cachedSource: "#",
+        primaryButtonTitle: t('projects.completeApps.items.portfolio.buttons.live'),
+        secondaryButtonTitle: ""
+    }
+];
+
 
 export const CompleteApps = () => {
-    const projectsData = [
-        {
-            id: 1,
-            imgSrc: project_1,
-            alt: "ChertNodes",
-            stack: "HTML SCSS Python Flask",
-            title: "ChertNodes",
-            description: "Minecraft servers hosting",
-            liveSource: "#",
-            cachedSource: "#",
-            primaryButtonTitle: "Live",
-            secondaryButtonTitle: "Cached"
-        }, {
-            id: 2,
-            imgSrc: project_3,
-            alt: "Kahoot Answers Viewer",
-            stack: "CSS Express Node.js",
-            title: "Kahoot Answers Viewer",
-            description: "Get answers to your Kahoot quiz",
-            liveSource: "#",
-            cachedSource: "#",
-            primaryButtonTitle: "Live",
-            secondaryButtonTitle: ""
-        },
-        {
-            id: 3,
-            imgSrc: project_2,
-            alt: "ProtectX",
-            stack: "React Express Discord.js Node.js HTML SCSS Python Flask",
-            title: "ProtectX",
-            description: "Discord anti-crash bot",
-            liveSource: "#",
-            cachedSource: "#",
-            primaryButtonTitle: "",
-            secondaryButtonTitle: "Cached"
+    const {t} = useTranslation();
 
-        },
-        {
-            id: 4,
-            imgSrc: project_4,
-            alt: "Kotik Bot",
-            stack: "HTML CSS JS",
-            title: "Kotik Bot",
-            description: "Multi-functional discord bot",
-            liveSource: "#",
-            cachedSource: "#",
-            primaryButtonTitle: "Live",
-            secondaryButtonTitle: ""
-        }, {
-            id: 5,
-            imgSrc: project_5,
-            alt: "Portfolio",
-            stack: "Vue TS Less",
-            title: "Portfolio",
-            description: "You’re using it rn",
-            liveSource: "#",
-            cachedSource: "#",
-            primaryButtonTitle: "Github",
-            secondaryButtonTitle: ""
-        },
-
-    ];
+    const projects = getProjectsData(t)
     return (
         <StyledCompleteProjects>
             <Container>
-                <SectionTitle prefix={"#"} title={"complete-apps"}/>
+                <SectionTitle prefix={"#"} title={t('projects.completeApps.title')}/>
                 <ProjectsWrapper>
-                    {projectsData.map((project) => (
+                    {projects.map((project) => (
                         <Project
                             key={project.id}
                             imgSrc={project.imgSrc}

@@ -6,24 +6,30 @@ import {Icon} from "../../../components/ui/icon/Icon";
 import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
+import {TFunction} from "i18next";
+import {useTranslation} from "react-i18next";
 
-export const skillsData = [
-    {title: "Languages", items: ["TypeScript", "Lua", "Python", "JavaScript"]},
-    {title: "Databases", items: ["SQLite", "PostgresSQL", "Mongo"]},
-    {title: "Tools", items: ["VSCode", "Neovim", "Linux", "Figma", "XFCE", "Arch", "Git", "Font Awesome"]},
-    {title: "Other", items: ["HTML", "CSS", "EJS", "SCSS", "REST", "Jinja"]},
-    {title: "Frameworks", items: ["React", "Vue", "Disnake", "Discord.js", "Flask", "Express.js"]},
-];
+export interface ISkill {
+    title: string;
+    items: string[]
+}
 
 
+export const getSkillsData = (t: TFunction): ISkill[] => [
+    {title: t('home.skills.languages'), items: ["TypeScript", "Lua", "Python", "JavaScript"]},
+    {title: t('home.skills.databases'), items: ["SQLite", "PostgresSQL", "Mongo"]},
+    {title: t('home.skills.tools'), items: ["VSCode", "Neovim", "Linux", "Figma", "XFCE", "Arch", "Git", "Font Awesome"]},
+    {title: t('home.skills.other'), items: ["HTML", "CSS", "EJS", "SCSS", "REST", "Jinja"]},
+    {title: t('home.skills.frameworks'), items: ["React", "Vue", "Disnake", "Discord.js", "Flask", "Express.js"]}]
 
 
 export const Skills = () => {
-
+    const {t} = useTranslation();
+    const skills = getSkillsData(t)
     return (
         <StyledSkills>
             <Container>
-                <SectionTitle prefix="#" title={"skills"} showLine={true} linePosition={240} lineWidth={239}/>
+                <SectionTitle prefix="#" title={t('home.skills.title')} showLine={true} linePosition={240} lineWidth={239}/>
                 <FlexWrapper justify={"space-between"}>
                     <AbstractFigures>
                         <StyledIconWrapper className="first_dots">
@@ -41,11 +47,13 @@ export const Skills = () => {
                     </AbstractFigures>
                     <SkillsWrapper>
                         <SkillsCards>
-                            {skillsData.map((skill, index) => (
+                            {skills.map((skill, index) => (
                                 <SkillCard key={index}>
                                     <Skill key={index}
                                            width={"196px"}
-                                           title={skill.title} items={skill.items}/>
+                                           title={skill.title}
+                                           items={skill.items}
+                                    />
                                 </SkillCard>
                             ))}
                         </SkillsCards>
@@ -101,8 +109,6 @@ const SkillCard = styled.div`
 `;
 
 
-
-
 const AbstractFigures = styled.div`
     position: relative;
 `
@@ -110,7 +116,7 @@ const StyledIconWrapper = styled.div`
     position: absolute;
 
     &.first_dots {
-        transform:translate(34px,58px) ;
+        transform: translate(34px, 58px);
     }
 
     &.big_square {
@@ -118,15 +124,15 @@ const StyledIconWrapper = styled.div`
         width: 86px;
         height: 86px;
         border: 1px solid ${theme.colors.secondary};
-        transform:translate(262px,12px);
+        transform: translate(262px, 12px);
     }
 
     &.logo {
-        transform:translate(49px,190px);
+        transform: translate(49px, 190px);
     }
 
     &.second_dots {
-        transform:translate(210px,165px);
+        transform: translate(210px, 165px);
     }
 
     &.square {
@@ -134,8 +140,8 @@ const StyledIconWrapper = styled.div`
         border: 1px solid ${theme.colors.secondary};
         width: 52px;
         height: 52px;
-          
-        transform:translate(331px,215px);
+
+        transform: translate(331px, 215px);
 
     }
 `

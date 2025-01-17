@@ -4,14 +4,14 @@ import {Container} from "../../../components/shared/Container/Container";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 import {theme} from "../../../styles/Theme";
 import {Icon} from "../../../components/ui/icon/Icon";
+import {useTranslation} from "react-i18next";
 
-type QuoteBlockPropsType = {
-    blockquote: string;
-    author: string;
-}
 
-export const QuoteBlock = (props: QuoteBlockPropsType) => {
-    let {blockquote, author} = props
+
+export const Quote = () => {
+
+    const {t} = useTranslation();
+
     return (
         <StyledQuoteBlock>
 
@@ -24,9 +24,9 @@ export const QuoteBlock = (props: QuoteBlockPropsType) => {
                                   width={"26px"}/>
                         </IconQuoteWrapper>
 
-                        <Quote>
-                            {blockquote}
-                        </Quote>
+                        <StyledQuote>
+                            {t('home.quote.text')}
+                        </StyledQuote>
                         <IconQuoteWrapper className="down-quotes">
                             <Icon iconId={"up_quotes"} viewBox={"0 0 26 21"}
                                   height={"21px"}
@@ -34,7 +34,7 @@ export const QuoteBlock = (props: QuoteBlockPropsType) => {
                         </IconQuoteWrapper>
                         <AuthorWrapper>
                             <Author>
-                                {author}
+                                {t('home.quote.author')}
                             </Author>
                         </AuthorWrapper>
                     </BlockQuoteWrapper>
@@ -70,7 +70,7 @@ const StyledQuoteBlock = styled.section`
 const BlockQuoteWrapper = styled.div`
     position: relative;
 `
-const Quote = styled.section`
+const StyledQuote = styled.section`
     font-weight: 500;
     font-size: 24px;
     display: flex;

@@ -13,6 +13,7 @@ export const Contacts = () => {
     );
 };
 
-const StyledContacts = styled.section``
+const StyledContacts = styled.section`
+    padding-top: 32px;`
 
 

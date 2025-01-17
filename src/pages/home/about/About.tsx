@@ -7,6 +7,7 @@ import {Container} from "../../../components/shared/Container/Container";
 import {LinkAsButton} from "../../../components/ui/linkAsButton/LinkAsButton";
 import {theme} from "../../../styles/Theme";
 import {Icon} from "../../../components/ui/icon/Icon";
+import {useTranslation} from "react-i18next";
 
 interface DecoratorStyles {
     width: string;
@@ -34,28 +35,19 @@ export const About: React.FC<AboutProps> = ({
                                                 afterDecorator,
                                                 showLine,
                                             }) => {
+    const {t} = useTranslation();
     return (
         <StyledAbout $beforeDecorator={beforeDecorator} $afterDecorator={afterDecorator}>
             <Container>
-                <SectionTitle prefix={"#"} title={"about-me"} showLine={showLine} lineWidth={326} linePosition={300}/>
+                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={326} linePosition={300}/>
                 <FlexWrapper justify={'space-between'}>
                     <StyledDescription>
-                        <StyledParagraph>Hello, i’m Elias!</StyledParagraph>
-                        <StyledParagraph>I’m a self-taught front-end developer based in Manchester, Great Britain. I can
-                            develop
-                            responsive
-                            websites from scratch and raise them into modern user-friendly web
-                            experiences.
+                        <StyledParagraph>{t('home.about.introduction')}</StyledParagraph>
+                        <StyledParagraph>{t('home.about.firstParagraph')}
                         </StyledParagraph>
-                        <StyledParagraph>Transforming my creativity and knowledge into a websites has been my passion
-                            for
-                            over a
-                            year. I have been helping various clients to establish their presence online. I always
-                            strive to
-                            learn about the newest technologies and frameworks</StyledParagraph>
+                        <StyledParagraph>{t('home.about.secondParagraph')}</StyledParagraph>
                         <ButtonWrapper>
-                            {showButton && (<LinkAsButton to="/about" variant={"primary"} size={"small"}>Read more
-                                -&gt;</LinkAsButton>)}
+                            {showButton && (<LinkAsButton to="/about" variant={"primary"} size={"small"}>{t('home.about.link')}</LinkAsButton>)}
                         </ButtonWrapper>
                     </StyledDescription>
 

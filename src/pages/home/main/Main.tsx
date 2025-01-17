@@ -6,12 +6,14 @@ import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
 import {StyledButton} from "../../../components/ui/button/Button";
 import {Icon} from "../../../components/ui/icon/Icon";
-import {Modal} from "./Modal/Modal";
-import {ContactForm} from "./ContactForm/ContactForm";
+import {Modal} from "../../../components/Modal/Modal";
+import {ContactForm} from "../../../components/ContactForm/ContactForm";
+import {useTranslation} from "react-i18next";
 
 
 export const Main = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const {t} = useTranslation();
 
     const handleOpenModal = (): void => {
         setIsModalOpen(true);
@@ -25,10 +27,11 @@ export const Main = () => {
             <Container>
                 <FlexWrapper align={'center'} justify={'space-between'}>
                     <div>
-                        <Name>Elias is a <span>web designer</span> and <span>front-end developer</span></Name>
-                        <MainTitle>He crafts responsive websites where technologies <br/>meet creativity</MainTitle>
+                        <Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> и <span>{t('home.main.title.professions.frontendDev')}</span></Name>
+
+                        <MainTitle>{t('home.main.title.description')}</MainTitle>
                         <StyledButton size={"small"} onClick={handleOpenModal}>
-                            Contact me!!
+                            {t('home.main.buttons.contactMe')}
                         </StyledButton>
                     </div>
                     <FlexWrapper direction={"column"} align={'center'}>
@@ -41,7 +44,7 @@ export const Main = () => {
                                 <Icon iconId={"dots5x5"} viewBox={"0 0 84 84"} height={"84px"} width={"84px"}/>
                             </StyledIconWrapper>
                         </PhotoWrapper>
-                        <Status><span></span>Currently working on <b>Portfolio</b></Status>
+                        <Status><span></span>{t('home.main.status.currentlyWorking')} <b>{t('home.main.status.project')}</b></Status>
                     </FlexWrapper>
                 </FlexWrapper>
             </Container>
@@ -112,7 +115,7 @@ const pulse = keyframes`
         box-shadow: 0 0 0 0 ${theme.colors.accent};
     }
     70% {
-        box-shadow: 0 0 0 3px rgba(199, 120, 221, 0); // Уменьшаем размер тени
+        box-shadow: 0 0 0 6px rgba(199, 120, 221, 0); // Уменьшаем размер тени
     }
     100% {
         box-shadow: 0 0 0 0 rgba(199, 120, 221, 0);
