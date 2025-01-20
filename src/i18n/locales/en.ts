@@ -3,16 +3,16 @@ const en = {
         common: {
             menu: {
                 home: "home",
-                about: "about",
-                projects: "projects",
+                about: "about-me",
+                projects: "works",
                 contacts: "contacts"
             },
             contactForm: {
                 name: "name",
-                email: "e-mail",
-                title: "subject",
-                message: "message",
-                send: "send",
+                email: "Email",
+                title: "Title",
+                message: "Message",
+                send: "Send",
                 errorsMassage: {
                     nameRequired: "Name is required",
                     emailRequired: "Email is required",
@@ -25,17 +25,18 @@ const en = {
                 }
             },
             footer: {
-                description: "Web Designer and Frontend Developer",
-                media: "social media"
+                description: "Web designer and front-end Developer",
+                media: "Media"
             }
         },
         home: {
             main: {
                 title: {
-                    name: "Elias - ",
+                    name: "Elias is a ",
+                    and: "and ",
                     professions: {
                         webDesigner: "web designer",
-                        frontendDev: "frontend developer"
+                        frontendDev: "front-end developer"
                     },
                     description: "He creates responsive websites where technology meets creativity"
                 },
@@ -57,7 +58,7 @@ const en = {
                 items: {
                     chertNodes: {
                         title: "ChertNodes",
-                        description: "Minecraft Server Hosting",
+                        description: "Minecraft servers hosting",
                         alt: "ChertNodes",
                         buttons: {
                             live: "Live <~>",
@@ -66,7 +67,7 @@ const en = {
                     },
                     protectX: {
                         title: "ProtectX",
-                        description: "Discord Anti-Crash Bot",
+                        description: "Discord anti-crash bot",
                         alt: "ProtectX",
                         buttons: {
                             live: "Live <~>",
@@ -93,33 +94,33 @@ const en = {
                 frameworks: "Frameworks"
             },
             about: {
-                title: "about me",
+                title: "about-me",
                 introduction: "Hi, I'm Elias! ",
-                firstParagraph: "I'm a self-taught frontend developer based in Manchester, UK. I create responsive websites from scratch and turn them into modern user-friendly web experiences.",
-                secondParagraph: "Transforming my creativity and knowledge into websites has been my passion for over a year. I help various clients establish their presence online. I always strive to learn about the newest technologies and frameworks.",
+                firstParagraph: "I'm a self-taught frontend developer based in Manchester, UK. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.",
+                secondParagraph: "Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.",
                 link: "Read more ->",
             },
             contacts: {
                 title: "contacts",
-                text: "I'm interested in freelance opportunities. However, if you have other requests or questions, don't hesitate to contact me",
+                text: "I’m interested in freelance opportunities. However, if you have other request or question, don’t hesitate to contact me",
                 messageTitle: "Message me here"
             },
         },
         about: {
-            headerTitle: "about me",
+            headerTitle: "about-me",
             description: "Who am I?",
             facts: {
                 title: "fun facts about me",
-                firstFact: "I prefer winter over summer",
-                secondFact: "I often ride bikes with my friends",
+                firstFact: "I like winter more than summer",
+                secondFact: "I often bike with my friends",
                 thirdFact: {
-                    like: "I love",
+                    like: "I like",
                     pizza: "pizza ",
                     pasta: "pasta",
                     and: "and"
                 },
                 fourthFact: {
-                    was: "I've been to",
+                    was: "I was in",
                     egypt: "Egypt",
                     poland: "Poland",
                     turkey: "Turkey",
@@ -137,11 +138,11 @@ const en = {
             title: "projects",
             description: "List of my projects",
             completeApps: {
-                title: "complete applications",
+                title: "complete-apps",
                 items: {
                     chertNodes: {
                         title: "ChertNodes",
-                        description: "Minecraft Server Hosting",
+                        description: "Minecraft servers hosting",
                         alt: "ChertNodes",
                         buttons: {
                             live: "Live <~>",
@@ -150,7 +151,7 @@ const en = {
                     },
                     protectX: {
                         title: "ProtectX",
-                        description: "Discord Anti-Crash Bot",
+                        description: "Discord anti-crash bot",
                         alt: "ProtectX",
                         buttons: {
                             live: "Live <~>",
@@ -168,7 +169,7 @@ const en = {
                     },
                     kotikBot: {
                         title: "Kotik Bot",
-                        description: "Multifunctional Discord bot",
+                        description: "Multi-functional discord bot",
                         buttons: {
                             live: "Live <~>",
                             cached: "Cached >="
@@ -176,7 +177,7 @@ const en = {
                     },
                     portfolio: {
                         title: "Portfolio",
-                        description: "You're using it right now",
+                        description: "You're using it rn",
                         buttons: {
                             live: "Github <~>",
                             cached: "Cached >="
@@ -253,7 +254,7 @@ const en = {
             support: "Support me here",
             message: "Message me here",
             allMedia: {
-                title: "all social media"
+                title: "all-media"
             }
         }
     }

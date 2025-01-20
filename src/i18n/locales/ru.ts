@@ -33,6 +33,7 @@ const ru = {
             main: {
                 title: {
                     name: "Elias - ",
+                    and : "и ",
                     professions: {
                         webDesigner: "веб-дизайнер",
                         frontendDev: "фронтенд разработчик"

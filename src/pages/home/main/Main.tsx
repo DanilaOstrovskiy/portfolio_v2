@@ -27,7 +27,7 @@ export const Main = () => {
             <Container>
                 <FlexWrapper align={'center'} justify={'space-between'}>
                     <div>
-                        <Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> и <span>{t('home.main.title.professions.frontendDev')}</span></Name>
+                        <Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> {t('home.main.title.and')} <span>{t('home.main.title.professions.frontendDev')}</span></Name>
 
                         <MainTitle>{t('home.main.title.description')}</MainTitle>
                         <StyledButton size={"small"} onClick={handleOpenModal}>

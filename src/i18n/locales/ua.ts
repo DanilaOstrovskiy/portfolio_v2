@@ -33,6 +33,7 @@ const ua = {
             main: {
                 title: {
                     name: "Elias - ",
+                    and: "i ",
                     professions: {
                         webDesigner: "веб-дизайнер",
                         frontendDev: "фронтенд розробник"
