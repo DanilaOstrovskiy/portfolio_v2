@@ -128,6 +128,11 @@ const StyledSmallProjects = styled.section`
         
         background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
         background-size: 20px 20px;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
+        
     }
     
     &::before {
@@ -139,6 +144,10 @@ const StyledSmallProjects = styled.section`
         height: 155px;
         left: 0;
         top: 0;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
     }
     
     &::after {
@@ -153,6 +162,14 @@ const StyledSmallProjects = styled.section`
         background-color: transparent;
         background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
         background-size: 20px 20px;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
+    }
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
     }
 `
 
@@ -163,5 +180,12 @@ const ProjectsWrapper = styled.section`
     grid-template-rows: repeat(2, 1fr);
 
     padding-top: 40px;
-    padding-bottom: 190px
+    padding-bottom: 190px;
+
+    @media ${theme.media.mobile}, ${theme.media.mobileL}, ${theme.media.tablet} {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    place-items: center;
+}
 `

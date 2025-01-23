@@ -61,6 +61,10 @@ const MediaStyled = styled.section`
             display: none;
         }
     }
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
 `
 
 const MediaWrapper = styled.div`

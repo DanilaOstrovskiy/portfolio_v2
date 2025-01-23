@@ -45,6 +45,10 @@ const AboutMe = () => {
 };
 
 const StyledAboutMe = styled.section`
-    padding-top: 32px;`
+    padding-top: 32px;
+
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletL} {
+        padding: 82px 20px 12px;
+    }`
 
 export default AboutMe;

@@ -69,7 +69,7 @@ const StyledFooter = styled.footer`
         position: absolute;
         background-color: ${theme.colors.secondary}
     }
-    
+
 
 `
 const FooterWrapper = styled.footer`
@@ -78,6 +78,7 @@ const FooterWrapper = styled.footer`
     padding-top: 32px;
     padding-bottom: 24px;
     flex-wrap: wrap;
+  
     
     @media ${theme.media.mobileL}, ${theme.media.mobile} {
         display: flex;

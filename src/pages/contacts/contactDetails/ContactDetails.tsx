@@ -12,8 +12,8 @@ export const ContactDetails = () => {
     return (
         <StyledContactDetails>
             <Container>
-                <SectionHeader prefix={"/"} title= {t('contacts.title')} description={t('contacts.description')}/>
-                <FlexWrapper justify={'space-between'}>
+
+                <FlexWrapper justify={'space-between'} wrap={'wrap'} gap={"12px"}>
                     <StyledText>
                         {t('contacts.text')}
                     </StyledText>
@@ -68,17 +68,27 @@ const StyledContactDetails = styled.section`
         }
     }
 
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
 `
 
 const StyledText = styled.p`
     color: ${theme.colors.secondary};
-    max-width: 505px;`
+    max-width: 505px;
+    
+`
 
 const InfoWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 11px
+    gap: 11px;
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 `
 
 const SupportWrapper = styled.div`
@@ -102,8 +112,6 @@ const ContactWrapper = styled.div`
 `
 const StyledContactTitle = styled.p`
     font-weight: 600;
-
-
 `
 
 const StyledContactList = styled.ul`

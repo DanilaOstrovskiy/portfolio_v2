@@ -6,8 +6,6 @@ import {Container} from "../../components/shared/Container/Container";
 import {HeaderMenu} from "./headerMenu/HeaderMenu";
 import {theme} from "../../styles/Theme";
 import {MobileMenu} from "./mobileMenu/MobileMenu";
-import {SocialSidebar} from "../sidebar/SocialSidebar";
-import {Socialbar} from "./mobileMenu/Social/SocialBar";
 
 
 export const Header = () => {
@@ -25,7 +23,6 @@ export const Header = () => {
                     <Logo />
                     <HeaderMenu menuItems={headerMenu}/>
                     <MobileMenu menuItems={headerMenu}/>
-
                 </FlexWrapper>
             </Container>
         </StyledHeader>
@@ -38,7 +35,7 @@ const StyledHeader = styled.header`
     background-color: ${theme.colors.primaryBg};
 
     @media ${theme.media.tablet} {
-        padding-top: 16px;
+        padding-top: 19px;
         padding-bottom: 8px;
         position: fixed;
         left: 0;

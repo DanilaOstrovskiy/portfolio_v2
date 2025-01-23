@@ -55,23 +55,43 @@ const StyledSkills = styled.section`
             display: none;
         }
     }
- 
-
-
+    
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
 
 `
 const SkillsWrapper = styled.div`
     padding-top: 50px;
     max-width: 1024px;
+    display: flex;
+   
+
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding-top: 20px;
+    }
+    @media ${theme.media.tabletL} {
+        max-height: 280px;
+    }
+
+
+
 `
 
-const SkillsCards = styled.div`
-    max-height: 280px;
-    width: 192px;
+const SkillsCards = styled.ul`
+
+    max-width: 192px;
     display: flex;
     flex-direction: row;
     gap: 16px;
-
+    
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
 `
 
 const SkillCard = styled.div`

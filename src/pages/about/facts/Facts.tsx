@@ -76,8 +76,16 @@ const StyledFacts = styled.section`
             display: none;
         }
     }
-    
 
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
+
+    
+    ${FlexWrapper}{
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 `
 
 const StyledContainer = styled.div`
@@ -103,8 +111,10 @@ const StyledItem = styled.li`
 
 const AbstractFiguresWrapper = styled.div`
     position: relative;
-    
 
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+        display: none;
+    }
 `
 
 const IconWrapper = styled.div`
