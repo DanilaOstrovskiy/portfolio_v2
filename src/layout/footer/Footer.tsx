@@ -69,6 +69,7 @@ const StyledFooter = styled.footer`
         position: absolute;
         background-color: ${theme.colors.secondary}
     }
+    
 
 `
 const FooterWrapper = styled.footer`
@@ -76,6 +77,14 @@ const FooterWrapper = styled.footer`
     justify-content: space-between;
     padding-top: 32px;
     padding-bottom: 24px;
+    flex-wrap: wrap;
+    
+    @media ${theme.media.mobileL}, ${theme.media.mobile} {
+        display: flex;
+        gap:10px;
+        justify-content: center;
+        
+    }
 
 `
 const FooterSection = styled.section`
@@ -96,15 +105,19 @@ const StyledDescription = styled.p`
 const MediaTitle = styled.h6`
     font-weight: 500;
     font-size: 24px;
+    @media ${theme.media.mobileL}, ${theme.media.mobile}, ${theme.media.tablet} {
+        margin: 0 auto;
+    }
 `
 const SocialMediaWrapper = styled.div`
     display: flex;
     gap: 12px;
-    flex-direction: column;`
+    flex-direction: column;
+
+`
 
 const SocialList = styled.ul`
     display: flex;
-    list-style-type: none;
     gap: 12px;`
 
 const SocialItem = styled.li`

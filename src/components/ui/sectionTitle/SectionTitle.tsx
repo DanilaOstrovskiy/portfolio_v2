@@ -6,12 +6,12 @@ type SectionTitleProps = {
     prefix: string;
     title: string;
     showLine?: boolean;
-    linePosition?: number; // добавляем опциональный проп для позиции линии
-    lineWidth?: number;
+    linePosition?: string; // добавляем опциональный проп для позиции линии
+    lineWidth?: string;
 }
 
 export const SectionTitle = (props: SectionTitleProps) => {
-    const {title, linePosition = 100, lineWidth = 511, showLine = false, prefix = ""} = props; // значение по умолчанию 100
+    const {title, linePosition = "100px", lineWidth = "511px", showLine = false, prefix = ""} = props; // значение по умолчанию 100
 
     return (
         <StyledTitle $linePosition={linePosition} $lineWidth={lineWidth} $showLine={showLine}>
@@ -22,8 +22,8 @@ export const SectionTitle = (props: SectionTitleProps) => {
 
 // Добавляем тип для пропсов styled-component
 type StyledTitleProps = {
-    $linePosition: number;
-    $lineWidth: number;
+    $linePosition: string;
+    $lineWidth: string;
     $showLine: boolean;
 }
 
@@ -37,13 +37,17 @@ const StyledTitle = styled.h2<StyledTitleProps>`
     &::after {
         content: "";
         display: ${props => props.$showLine ? 'inline-block' : 'none'};
-        width: ${props => props.$lineWidth}px;
+        width: ${props => props.$lineWidth};
         height: 1px;
         background-color: ${theme.colors.accent};
 
         position: absolute;
-        left: ${props => props.$linePosition}px;
+        left: ${props => props.$linePosition};
         top: 15px;
         transform: translateX(-50%);
+
+        @media ${theme.media.mobile}, ${theme.media.tablet} {
+            display: none;
+        }
     }
 `

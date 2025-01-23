@@ -79,11 +79,11 @@ export const Projects = () =>
         <StyledProjects>
             <Container>
                 <FlexWrapper align={"center"} justify={'space-between'}>
-                    <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={400} lineWidth={511}/>
+                    <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={"400px"} lineWidth={"511px"}/>
                     <StyledLink to="/works">{t('home.projects.viewAll')}</StyledLink>
                 </FlexWrapper>
                 <ProjectsWrapper>
-                    <FlexWrapper justify={"space-between"}>
+                    <FlexWrapper justify={"space-around"} wrap={"wrap"} gap={"15px"}>
                         {projects.map((project:IProject) => (
                             <Project
                                 key={project.id}
@@ -111,24 +111,34 @@ export const Projects = () =>
 const StyledProjects = styled.section`
     padding-top: 66px;
     padding-bottom: 66px;
-
     position: relative;
 
-   
-        &::after {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            border: 1px solid ${theme.colors.secondary};
-            width: 70px;
-            height: 155px;
-            right: 0;
-            top: 30%;
-        
-    }`
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        border: 1px solid ${theme.colors.secondary};
+        width: 70px;
+        height: 155px;
+        right: 0;
+        top: 30%;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
+    }
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
+
+
+
+`
 
 const ProjectsWrapper = styled.div`
-    padding-top: 50px
+    padding-top: 50px;
+    
 `
 
 const StyledLink = styled(Link)`

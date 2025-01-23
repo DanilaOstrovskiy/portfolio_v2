@@ -29,8 +29,8 @@ export const Skills = () => {
     return (
         <StyledSkills>
             <Container>
-                <SectionTitle prefix="#" title={t('home.skills.title')} showLine={true} linePosition={240} lineWidth={239}/>
-                <FlexWrapper justify={"space-between"}>
+                <SectionTitle prefix="#" title={t('home.skills.title')} showLine={true} linePosition={"240px"} lineWidth={"239px"}/>
+                <FlexWrapper justify={"space-between"} wrap={"wrap"}>
                     <AbstractFigures>
                         <StyledIconWrapper className="first_dots">
                             <Icon iconId={"dots5x5"} viewBox={"0 0 84 84"} height={"63"}
@@ -57,7 +57,8 @@ export const Skills = () => {
                                 </SkillCard>
                             ))}
                         </SkillsCards>
-                    </SkillsWrapper></FlexWrapper>
+                    </SkillsWrapper>
+                </FlexWrapper>
 
             </Container>
         </StyledSkills>
@@ -67,22 +68,41 @@ export const Skills = () => {
 const StyledSkills = styled.section`
     padding-top: 66px;
     padding-bottom: 66px;
+
+    ${FlexWrapper} {
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+            padding: 12px 20px;
+    }
 `
+
 const SkillsWrapper = styled.div`
     padding-top: 50px;
 `
 
 const SkillsCards = styled.div`
-    //display: grid;
-    //grid-template-columns: repeat(3, 178px);
-    //gap: 5px;
-    //padding-top: 50px;
-    max-height: 280px;
-    width: 584px;
+    
+    max-width: 584px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap-reverse;
     gap: 16px;
+
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @media ${theme.media.tabletL} {
+        max-height: 280px;
+    }
 
 `
 const SkillCard = styled.div`
@@ -111,6 +131,10 @@ const SkillCard = styled.div`
 
 const AbstractFigures = styled.div`
     position: relative;
+
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+        display: none;
+    }
 `
 const StyledIconWrapper = styled.div`
     position: absolute;

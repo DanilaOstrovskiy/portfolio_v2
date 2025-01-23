@@ -62,6 +62,10 @@ const StyledContactDetails = styled.section`
         height: 155px;
         right: 0;
         bottom: 0;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
     }
 
 `

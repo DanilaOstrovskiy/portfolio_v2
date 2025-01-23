@@ -9,6 +9,7 @@ import {Icon} from "../../../components/ui/icon/Icon";
 import {Modal} from "../../../components/Modal/Modal";
 import {ContactForm} from "../../../components/ContactForm/ContactForm";
 import {useTranslation} from "react-i18next";
+import {font} from "../../../styles/Common";
 
 
 export const Main = () => {
@@ -25,7 +26,7 @@ export const Main = () => {
     return (
         <StyledMain>
             <Container>
-                <FlexWrapper align={'center'} justify={'space-between'}>
+                <FlexWrapper align={'center'}  justify={'space-between'}>
                     <div>
                         <Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> {t('home.main.title.and')} <span>{t('home.main.title.professions.frontendDev')}</span></Name>
 
@@ -57,20 +58,50 @@ export const Main = () => {
 
 
 const StyledMain = styled.section`
-    min-height: 70vh;
+    min-height: 40vh;
     padding-top: 35px;
     padding-bottom: 66px;
-`
+    
+    ${FlexWrapper}{
+        @media ${theme.media.tablet}, ${theme.media.mobile} {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
+    }
+
+    @media ${theme.media.tablet} {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    
+    ${StyledButton} {
+        @media ${theme.media.mobile}, ${theme.media.tablet} {
+            display: none;
+        }
+    }
+
+`
 
 const Name = styled.h2`
-    font-weight: 600;
-    font-size: 32px;
+    ${font({family: "'Fira Code', sans-serif", weight: 600, Fmax: 32, Fmin: 32})};
+    
+    &:nth-child(2) {
+        white-space: no-wrap;
+    }
 
     span {
-        color: ${theme.colors.accent}
+        color: ${theme.colors.accent};
+        
+    }
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 82px 20px 12px;
     }
 `
+
 const MainTitle = styled.h1`
     font-weight: 400;
     font-size: 16px;
@@ -78,15 +109,26 @@ const MainTitle = styled.h1`
     margin: 31px 0 24px 0;
     line-height: 156%;
 
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+        margin: 0 0 0 0;
+    }
+
 `
 
-
 const PhotoWrapper = styled.div`
-    max-height: 386px;
-    max-width: 469px;
+    height: 386px;
+    width: 469px;
     overflow: hidden; // обрезаем всё, что выходит за пределы
     position: relative;
     z-index: 0;
+    
+    @media ${theme.media.mobile} {
+        width: 316px;
+        height: 260px;
+        object-position: 0 0;
+    }
+    
 `
 
 const StyledIconWrapper = styled.div`
@@ -109,6 +151,13 @@ const Photo = styled.img`
     height: 100%;
     object-fit: cover;
     object-position: -115px -77px;
+
+    @media ${theme.media.mobile} {
+        width: 316px;
+        height: 260px;
+        object-position: 0 0;
+    }
+
 `
 const pulse = keyframes`
     0% {

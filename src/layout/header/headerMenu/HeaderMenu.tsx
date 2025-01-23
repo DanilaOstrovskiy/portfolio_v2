@@ -22,7 +22,7 @@ export const HeaderMenu = (props: MenuPropsType) => {
 
 
     return (
-        <StyledMenu>
+        <StyledHeaderMenu>
             <ul>
                 {menuItems.map((item, i) => {
                     return (
@@ -33,17 +33,22 @@ export const HeaderMenu = (props: MenuPropsType) => {
                 })}
                 <ListItem><LanguageSelector/></ListItem>
             </ul>
-        </StyledMenu>
+        </StyledHeaderMenu>
     );
 };
 
-const StyledMenu = styled.nav`
+const StyledHeaderMenu = styled.nav`
+    
     ul {
         display: flex;
         gap: 30px;
         justify-content: center;
-        list-style-type: none;
     }
+    
+    @media ${theme.media.tablet} {
+        display: none;
+    }
+    
 `
 
 const StyledLink = styled(Link)`

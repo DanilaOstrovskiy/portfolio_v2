@@ -50,6 +50,10 @@ const StyledSkills = styled.section`
         background-color: transparent;
         background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
         background-size: 20px 20px;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
     }
  
 

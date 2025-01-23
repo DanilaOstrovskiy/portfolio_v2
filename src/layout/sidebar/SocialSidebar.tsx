@@ -46,6 +46,10 @@ const Sidebar = styled.div`
     transform: translate(17px, 0);
     background: rgb(44, 48, 54, 0.8);
     z-index: 100;
+
+    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+        display: none;
+    }
 `;
 
 

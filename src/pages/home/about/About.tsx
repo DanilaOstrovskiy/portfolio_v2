@@ -39,7 +39,7 @@ export const About: React.FC<AboutProps> = ({
     return (
         <StyledAbout $beforeDecorator={beforeDecorator} $afterDecorator={afterDecorator}>
             <Container>
-                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={326} linePosition={300}/>
+                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={"326px"} linePosition={"300px"}/>
                 <FlexWrapper justify={'space-between'}>
                     <StyledDescription>
                         <StyledParagraph>{t('home.about.introduction')}</StyledParagraph>
@@ -88,9 +88,14 @@ const StyledAbout = styled.section<{
             background-color: ${props.$beforeDecorator.backgroundColor};
             background-image: ${props.$beforeDecorator.backgroundImage};
             background-size: ${props.$beforeDecorator.backgroundSize};
-        }
-    `}
+            
+            @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+                display: none;
+            }
+        }`
 
+
+    }
     ${(props: { $afterDecorator?: DecoratorStyles }) => props.$afterDecorator && `
         &::after {
             content: "";
@@ -104,23 +109,53 @@ const StyledAbout = styled.section<{
             background-color: ${props.$afterDecorator.backgroundColor};
             background-image: ${props.$afterDecorator.backgroundImage};
             background-size: ${props.$afterDecorator.backgroundSize};
+            
+            @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+                display: none;
+            }
         }
     `}
+    ${FlexWrapper} {
+        @media ${theme.media.mobileL}, ${theme.media.mobile}, ${theme.media.tablet} {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    ${LinkAsButton} {
+            @media ${theme.media.mobile}, ${theme.media.tablet} {
+                display: none;
+            }
+    }
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+            padding: 12px 20px;
+    }
+
+
 `;
 
 const StyledDescription = styled.div`
-    width: 50%;
+    max-width: 515px;
     display: flex;
     flex-direction: column;
     gap: 30px;
     line-height: 162%;
     padding-top: 30px;
+
+    white-space: no-wrap;
 `
 
 const Photo = styled.img`
     width: 340px;
     object-fit: cover;
     z-index: 0;
+
+    @media ${theme.media.mobile} {
+        width: 210px;
+        object-position: 0 0;
+    }
 
 
 `
@@ -139,9 +174,18 @@ const PhotoWrapper = styled.div`
             background-color: ${theme.colors.accent};
             z-index: 999;
             right: 25px;
-            bottom: 5px
+            bottom: 5px;
+
+            @media ${theme.media.mobile} {
+                display: none;
+            }
+
+
         }
     }
+
+
+}
 
 
 
@@ -161,6 +205,10 @@ const IconWrapper = styled.div`
         z-index: 2;
         right: 15px;
         top: 278px;
+    }
+
+    @media ${theme.media.mobile} {
+        display: none;
     }
 
 `

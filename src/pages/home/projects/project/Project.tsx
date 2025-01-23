@@ -53,7 +53,10 @@ export const Project = (props: ProjectPropsType) => {
 
 const StyledProject = styled.div`
     max-width: 330px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0);
+    flex-grow: 1;
+ 
 `
 
 

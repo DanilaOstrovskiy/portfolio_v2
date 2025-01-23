@@ -28,4 +28,11 @@ const StyledLink = styled(Link)`
         padding-left: 5px;
         color: white;
         font-weight: 500;
-    }`
+    }
+
+    @media ${theme.media.tablet} {
+        padding-left: 16px;
+    }
+    
+    z-index: 9999;
+`

@@ -53,6 +53,9 @@ const StyledFacts = styled.section`
         left: 0;
         top: 124px;
         border: 1px solid ${theme.colors.secondary};
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
 
     }
     
@@ -68,6 +71,10 @@ const StyledFacts = styled.section`
         background-color: transparent;
         background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
         background-size: 20px 20px;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
     }
     
 

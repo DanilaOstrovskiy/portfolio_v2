@@ -54,17 +54,27 @@ const StyledQuoteBlock = styled.section`
     outline: 1px solid red;
     position: relative;
     
-        &::before {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            border: 1px solid ${theme.colors.secondary};
-            width: 91px; 
-            height: 91px;
-            right: 0;
-            top: 30%
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
+
+    &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        border: 1px solid ${theme.colors.secondary};
+        width: 91px;
+        height: 91px;
+        right: 0;
+        top: 30%;
+
+        @media ${theme.media.mobile}, ${theme.media.desktopL} {
+            display: none;
         }
-    
+ 
+    }
+
+
 `
 
 const BlockQuoteWrapper = styled.div`

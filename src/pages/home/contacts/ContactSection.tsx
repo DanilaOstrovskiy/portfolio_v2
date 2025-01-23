@@ -5,34 +5,37 @@ import {Icon} from "../../../components/ui/icon/Icon";
 import {Container} from "../../../components/shared/Container/Container";
 import {theme} from "../../../styles/Theme";
 import {useTranslation} from "react-i18next";
+import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 
 export const ContactSection = () => {
     const {t} = useTranslation();
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle prefix={"#"} title={t('home.contacts.title')} showLine={true} linePosition={200} lineWidth={127}/>
-                <ContactsWrapper>
+                <SectionTitle prefix={"#"} title={t('home.contacts.title')} showLine={true} linePosition={"200px"}
+                              lineWidth={"127px"}/>
+                <FlexWrapper wrap={"wrap"} justify={"space-between"}>
                     <StyledText>
                         {t('home.contacts.text')}
                     </StyledText>
-                    <ContactWrapper>
-                        <StyledContactTitle>
-                            {t('home.contacts.messageTitle')}
-                        </StyledContactTitle>
-                        <StyledContactList>
-                            <StyledContactItem>
-                                <Icon iconId={"discord"} viewBox={"0 0 32 32"} height={"32"} width={"32"}/>
-                                <span>!Elias#3519</span>
-                            </StyledContactItem>
-                            <StyledContactItem>
-                                <Icon iconId={"mail"} viewBox={"0 0 32 32"} height={"32"} width={"32"}/>
-                                <span>elias@elias.me</span>
-                            </StyledContactItem>
-                        </StyledContactList>
-                    </ContactWrapper>
-
-                </ContactsWrapper>
+                    <ContactsWrapper>
+                        <ContactWrapper>
+                            <StyledContactTitle>
+                                {t('home.contacts.messageTitle')}
+                            </StyledContactTitle>
+                            <StyledContactList>
+                                <StyledContactItem>
+                                    <Icon iconId={"discord"} viewBox={"0 0 32 32"} height={"32"} width={"32"}/>
+                                    <span>!Elias#3519</span>
+                                </StyledContactItem>
+                                <StyledContactItem>
+                                    <Icon iconId={"mail"} viewBox={"0 0 32 32"} height={"32"} width={"32"}/>
+                                    <span>elias@elias.me</span>
+                                </StyledContactItem>
+                            </StyledContactList>
+                        </ContactWrapper>
+                    </ContactsWrapper>
+                </FlexWrapper>
             </Container>
         </StyledContacts>
     );
@@ -56,31 +59,47 @@ const StyledContacts = styled.section`
         background-color: transparent;
         background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
         background-size: 20px 20px;
+
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
+            display: none;
+        }
     }
-    
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        padding: 12px 20px;
+    }
+
+    ${FlexWrapper} {
+        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
 `
 const ContactsWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
     padding-top: 45px;
 `
 
 const StyledText = styled.p`
     color: ${theme.colors.secondary};
-    max-width: 505px;`
+    max-width: 505px;
+    padding-top: 55px;
+`
 
 const ContactWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
     border: 1px solid ${theme.colors.secondary};
-    padding:16px;
-    
+    padding: 16px;
+
 `
 const StyledContactTitle = styled.p`
     font-weight: 600;
-    
-    
+
+
 `
 
 const StyledContactList = styled.ul`
@@ -91,7 +110,7 @@ const StyledContactList = styled.ul`
 `
 
 const StyledContactItem = styled.li`
-    display: flex;  
+    display: flex;
     align-items: center;
     color: ${theme.colors.secondary};
     gap: 5px;
