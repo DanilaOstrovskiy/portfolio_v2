@@ -41,6 +41,7 @@ const MediaStyled = styled.section`
     padding-top: 14px;
     padding-bottom: 45px;
     position: relative;
+    height: 100vh;
 
     &::before {
         z-index: 1;
@@ -72,6 +73,7 @@ const MediaWrapper = styled.div`
     flex-direction: row;
     gap: 16px;
     padding-top: 16px;
+    flex-shrink: 1;
 
 
 `

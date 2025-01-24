@@ -65,7 +65,7 @@ const ProjectInfo = styled.div`
     border-bottom: 1px solid ${theme.colors.secondary};
     border-left: 1px solid ${theme.colors.secondary};
     border-right: 1px solid ${theme.colors.secondary};
-    padding: 16px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -76,7 +76,9 @@ const ProjectStack = styled.p`
     border: 1px solid ${theme.colors.secondary};
     display: flex;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 5px;
+    font-size: 16px;
+    line-height:30px;
     gap: 16px;
     color: ${theme.colors.secondary};
 
@@ -91,6 +93,7 @@ const ProjectDescription = styled.p`
     font-weight: 400;
     font-size: 16px;
     color: ${theme.colors.secondary};
+    line-height:20px;
 
 `
 

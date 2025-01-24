@@ -39,7 +39,7 @@ export const About: React.FC<AboutProps> = ({
     return (
         <StyledAbout $beforeDecorator={beforeDecorator} $afterDecorator={afterDecorator}>
             <Container>
-                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={"326px"} linePosition={"300px"}/>
+                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={"326px"} linePosition={"350px"}/>
                 <FlexWrapper justify={'space-between'}>
                     <StyledDescription>
                         <StyledParagraph>{t('home.about.introduction')}</StyledParagraph>
@@ -71,8 +71,8 @@ const StyledAbout = styled.section<{
     $beforeDecorator?: DecoratorStyles;
     $afterDecorator?: DecoratorStyles;
 }>`
-    padding-top: 66px;
-    padding-bottom: 66px;
+    padding-top: 85px;
+    padding-bottom: 40px;
     position: relative;
 
     ${(props: { $beforeDecorator?: DecoratorStyles }) => props.$beforeDecorator && `
@@ -140,9 +140,9 @@ const StyledDescription = styled.div`
     max-width: 515px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
     line-height: 162%;
-    padding-top: 30px;
+    padding-top: 25px;
 
     white-space: no-wrap;
 `

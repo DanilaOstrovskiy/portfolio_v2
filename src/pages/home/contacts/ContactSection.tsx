@@ -12,7 +12,7 @@ export const ContactSection = () => {
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle prefix={"#"} title={t('home.contacts.title')} showLine={true} linePosition={"200px"}
+                <SectionTitle prefix={"#"} title={t('home.contacts.title')} showLine={true} linePosition={"250px"}
                               lineWidth={"127px"}/>
                 <FlexWrapper wrap={"wrap"} justify={"space-between"}>
                     <StyledText>
@@ -42,8 +42,8 @@ export const ContactSection = () => {
 };
 
 const StyledContacts = styled.section`
-    padding-top: 66px;
-    padding-bottom: 144px;
+    padding-top: 68px;
+    padding-bottom: 148px;
 
     position: relative;
 
@@ -52,13 +52,13 @@ const StyledContacts = styled.section`
         display: inline-block;
         position: absolute;
         width: 60px;
-        height: 100px;
+        height: 120px;
         left: 0;
-        top: 15%;
+        top: 34%;
 
         background-color: transparent;
         background-image: radial-gradient(circle, ${theme.colors.secondary} 2px, transparent 2px);
-        background-size: 20px 20px;
+        background-size: 25px 25px;
 
         @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
             display: none;
@@ -85,7 +85,7 @@ const ContactsWrapper = styled.div`
 const StyledText = styled.p`
     color: ${theme.colors.secondary};
     max-width: 505px;
-    padding-top: 55px;
+    padding-top: 50px;
 `
 
 const ContactWrapper = styled.div`

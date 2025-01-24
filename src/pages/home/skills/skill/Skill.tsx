@@ -5,14 +5,14 @@ import {theme} from "../../../../styles/Theme";
 type PropsSkillType = {
     title: string;
     items: string[];
-    width: string;
+
 }
 
 export const Skill = (props: PropsSkillType ) => {
 
-    const { title, items, width } = props;
+    const { title, items} = props;
     return (
-        <SkillContainer $width={width}>
+        <SkillContainer >
             <SkillsTitle>{title}</SkillsTitle>
             <SkillsItems>{items.map((item, index) => (
                     <SkillItem key={index}>{item}</SkillItem>
@@ -21,13 +21,12 @@ export const Skill = (props: PropsSkillType ) => {
     );
 };
 
-type StyledPropsSkill = {
-    $width: string;
-}
 
-const SkillContainer = styled.div<StyledPropsSkill>`
+
+const SkillContainer = styled.div`
     border:1px solid ${theme.colors.secondary};
-    width: ${props => props.$width};
+    width: 190px;
+    height: 100%;
     display: flex;
     flex-direction: column;
 ;
@@ -35,7 +34,7 @@ const SkillContainer = styled.div<StyledPropsSkill>`
 
 const SkillsTitle = styled.h4`
     color: white;
-    padding: 6px;
+    padding: 8px 6px;
     border: 1px 1px 0 1px 1px solid ${theme.colors.secondary};
 `
 
@@ -43,7 +42,7 @@ const SkillsItems = styled.ul`
     display: flex;
     flex-wrap: wrap;
     padding: 6px;
-    gap: 8px;
+    gap: 6px;
     border-top: 1px solid ${theme.colors.secondary};
 `
 const SkillItem = styled.li`

@@ -29,7 +29,7 @@ export const Skills = () => {
     return (
         <StyledSkills>
             <Container>
-                <SectionTitle prefix="#" title={t('home.skills.title')} showLine={true} linePosition={"240px"} lineWidth={"239px"}/>
+                <SectionTitle prefix="#" title={t('home.skills.title')} showLine={true} linePosition={"272px"} lineWidth={"239px"}/>
                 <FlexWrapper justify={"space-between"} wrap={"wrap"}>
                     <AbstractFigures>
                         <StyledIconWrapper className="first_dots">
@@ -50,7 +50,6 @@ export const Skills = () => {
                             {skills.map((skill, index) => (
                                 <SkillCard key={index}>
                                     <Skill key={index}
-                                           width={"196px"}
                                            title={skill.title}
                                            items={skill.items}
                                     />
@@ -66,7 +65,7 @@ export const Skills = () => {
 };
 
 const StyledSkills = styled.section`
-    padding-top: 66px;
+    padding-top: 72px;
     padding-bottom: 66px;
 
     ${FlexWrapper} {
@@ -83,16 +82,16 @@ const StyledSkills = styled.section`
 `
 
 const SkillsWrapper = styled.div`
-    padding-top: 50px;
+    padding-top: 40px;
+    
 `
 
 const SkillsCards = styled.div`
-    
     max-width: 584px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap-reverse;
-    gap: 16px;
+    gap: 10px;
 
     @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletM} {
         display: flex;

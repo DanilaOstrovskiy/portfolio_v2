@@ -38,7 +38,7 @@ const en = {
                         webDesigner: "web designer",
                         frontendDev: "front-end developer"
                     },
-                    description: "He creates responsive websites where technology meets creativity"
+                    description: "He crafts responsive websites where technologies meet creativity"
                 },
                 buttons: {
                     contactMe: "Contact me!!"
@@ -49,8 +49,8 @@ const en = {
                 }
             },
             quote: {
-                text: "With great power comes a great electricity bill",
-                author: "- Doctor Who"
+                text: "With great power comes great electricity bill",
+                author: "- Dr. Who"
             },
             projects: {
                 title: "projects",
@@ -76,7 +76,7 @@ const en = {
                     },
                     kahoot: {
                         title: "Kahoot Answers Viewer",
-                        description: "Get answers to kahoot quiz",
+                        description: "Get answers to your kahoot quiz",
                         alt: "Kahoot",
                         buttons: {
                             live: "Live <~>",
@@ -95,7 +95,7 @@ const en = {
             },
             about: {
                 title: "about-me",
-                introduction: "Hi, I'm Elias! ",
+                introduction: "Hello, I'm Elias! ",
                 firstParagraph: "I'm a self-taught frontend developer based in Manchester, UK. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.",
                 secondParagraph: "Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.",
                 link: "Read more ->",

@@ -48,9 +48,8 @@ export const Quote = () => {
 };
 
 const StyledQuoteBlock = styled.section`
-    //min-height: 20vh;
-    padding-top: 66px;
-    padding-bottom: 66px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     outline: 1px solid red;
     position: relative;
     
@@ -66,7 +65,7 @@ const StyledQuoteBlock = styled.section`
         width: 91px;
         height: 91px;
         right: 0;
-        top: 30%;
+        top: 20%;
 
         @media ${theme.media.mobile}, ${theme.media.desktopL} {
             display: none;
@@ -114,7 +113,7 @@ const AuthorWrapper = styled.div`
 const Author = styled.footer`
     font-weight: 400;
     font-size: 24px;
-    padding: 16px;
+    padding: 18px;
     border-left: 1px solid ${theme.colors.secondary};
     border-right: 1px solid ${theme.colors.secondary};
     border-bottom: 1px solid ${theme.colors.secondary};

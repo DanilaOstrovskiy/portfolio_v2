@@ -30,6 +30,7 @@ type StyledTitleProps = {
 const StyledTitle = styled.h2<StyledTitleProps>`
     font-family: "Fira Code", sans-serif;
     font-weight: 500;
+    font-size: 32px;
     position: relative;
     span {
         color: ${theme.colors.accent};
@@ -43,7 +44,7 @@ const StyledTitle = styled.h2<StyledTitleProps>`
 
         position: absolute;
         left: ${props => props.$linePosition};
-        top: 15px;
+        top: 18px;
         transform: translateX(-50%);
 
         @media ${theme.media.mobile}, ${theme.media.tablet} {

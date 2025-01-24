@@ -79,7 +79,7 @@ export const Projects = () =>
         <StyledProjects>
             <Container>
                 <FlexWrapper align={"center"} justify={'space-between'}>
-                    <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={"400px"} lineWidth={"511px"}/>
+                    <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={"440px"} lineWidth={"511px"}/>
                     <StyledLink to="/works">{t('home.projects.viewAll')}</StyledLink>
                 </FlexWrapper>
                 <ProjectsWrapper>
@@ -109,8 +109,8 @@ export const Projects = () =>
 
 
 const StyledProjects = styled.section`
-    padding-top: 66px;
-    padding-bottom: 66px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     position: relative;
 
     &::after {
@@ -121,7 +121,7 @@ const StyledProjects = styled.section`
         width: 70px;
         height: 155px;
         right: 0;
-        top: 30%;
+        top: 50%;
 
         @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
             display: none;
@@ -137,7 +137,7 @@ const StyledProjects = styled.section`
 `
 
 const ProjectsWrapper = styled.div`
-    padding-top: 50px;
+    padding-top: 45px;
     
 `
 

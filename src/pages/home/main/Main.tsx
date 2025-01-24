@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styled, {keyframes} from "styled-components";
+import styled, {css, keyframes} from "styled-components";
 import photo from '../../../assets/images/avatar1.webp'
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 import {Container} from "../../../components/shared/Container/Container";
@@ -27,14 +27,14 @@ export const Main = () => {
         <StyledMain>
             <Container>
                 <FlexWrapper align={'center'}  justify={'space-between'}>
-                    <div>
+                    <DescriptionWrapper>
                         <Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> {t('home.main.title.and')} <span>{t('home.main.title.professions.frontendDev')}</span></Name>
 
                         <MainTitle>{t('home.main.title.description')}</MainTitle>
                         <StyledButton size={"small"} onClick={handleOpenModal}>
                             {t('home.main.buttons.contactMe')}
                         </StyledButton>
-                    </div>
+                    </DescriptionWrapper>
                     <FlexWrapper direction={"column"} align={'center'}>
                         <PhotoWrapper>
                             <StyledIconWrapper className="logo-wrapper">
@@ -59,9 +59,8 @@ export const Main = () => {
 
 const StyledMain = styled.section`
     min-height: 40vh;
-    padding-top: 35px;
+    padding-top: 40px;
     padding-bottom: 66px;
-    
     ${FlexWrapper}{
         @media ${theme.media.tablet}, ${theme.media.mobile} {
             display: flex;
@@ -72,7 +71,7 @@ const StyledMain = styled.section`
     }
 
     @media ${theme.media.tablet} {
-        padding-top: 20px;
+        padding-top: 5px;
         padding-bottom: 20px;
     }
     
@@ -83,6 +82,14 @@ const StyledMain = styled.section`
         }
     }
 
+`
+
+const DescriptionWrapper = styled.div`
+    margin-bottom: 57px;
+
+    @media ${theme.media.mobile}, ${theme.media.tablet} {
+        margin-bottom: 0;
+    }
 `
 
 const Name = styled.h2`
@@ -103,8 +110,9 @@ const Name = styled.h2`
 `
 
 const MainTitle = styled.h1`
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
+    max-width: 462px;
     color: ${theme.colors.secondary};
     margin: 31px 0 24px 0;
     line-height: 156%;
@@ -124,7 +132,7 @@ const PhotoWrapper = styled.div`
     z-index: 0;
     
     @media ${theme.media.mobile} {
-        width: 316px;
+        width: 307px;
         height: 260px;
         object-position: 0 0;
     }
@@ -136,15 +144,34 @@ const StyledIconWrapper = styled.div`
 
     &.logo-wrapper {
         z-index: -1;
-        top: 90px;
-        left: 15px;
+        top: 80px;
+        left: 2px;
+
     }
 
     &.dots-wrapper {
         z-index: 1;
-        bottom: 45px;
-        right: 10px;
+        bottom: 55px;
+        right: 15px;
+
     }
+    
+    @media ${theme.media.mobile} {
+        &.logo-wrapper {
+            z-index: -1;
+            top: 20px;
+            left: 0px;
+
+        }
+        
+        &.dots-wrapper {
+            z-index: 1;
+            bottom: 45px;
+            right: -38px;
+
+        }
+    }
+
 `
 const Photo = styled.img`
     width: 650px;
@@ -154,8 +181,8 @@ const Photo = styled.img`
 
     @media ${theme.media.mobile} {
         width: 316px;
-        height: 260px;
-        object-position: 0 0;
+        height: 560px;
+        object-position: -90px -59px;
     }
 
 `
@@ -176,16 +203,15 @@ const Status = styled.span`
     text-align: left;
     position: relative;
     z-index: 1;
-    padding: 6px 6px 6px 35px;
+    padding: 7px 7px 7px 30px;
+    transform: translateY(-2px);
     border: 1px solid ${theme.colors.secondary};
     color: ${theme.colors.secondary};
-    max-width: 402px;
+    max-width: 400px;
     width: 100%;
 
     span {
         position: relative;
-
-
         &::before {
             content: "";
             border: 1px solid ${theme.colors.accent};
