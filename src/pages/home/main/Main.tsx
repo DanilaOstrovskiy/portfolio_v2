@@ -155,19 +155,28 @@ const StyledIconWrapper = styled.div`
         right: 15px;
 
     }
-    
+
     @media ${theme.media.mobile} {
         &.logo-wrapper {
             z-index: -1;
-            top: 20px;
+            top: 50px;
             left: 0px;
 
+            & > svg {
+                width: 100px;
+                height: 100px;
+            }
         }
-        
+
         &.dots-wrapper {
             z-index: 1;
             bottom: 45px;
-            right: -38px;
+
+            & > svg {
+                right: -38px;
+                width: 50px;
+                height: 50px;
+            }
 
         }
     }
