@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {GlobalStyle} from "./styles/GlobalStyled";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n/i18n';
 
@@ -13,12 +13,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter>
             <I18nextProvider i18n={i18n}>
             <GlobalStyle/>
             <App/>
             </I18nextProvider>
-        </BrowserRouter>
+        </HashRouter>
     </React.StrictMode>
 );
 
