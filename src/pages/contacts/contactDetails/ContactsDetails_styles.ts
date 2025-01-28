@@ -105,6 +105,10 @@ const ContactItem = styled.li`
             fill: ${theme.colors.primary};
         }
     }
+    
+    button {
+        cursor: pointer;
+    }
 `
 
 const Link = styled.a`
