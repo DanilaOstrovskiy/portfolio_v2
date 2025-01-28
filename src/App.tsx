@@ -2,7 +2,7 @@ import './App.css';
 import {Header} from "./layout/header/Header";
 import {Footer} from "./layout/footer/Footer";
 import {SocialSidebar} from "./layout/sidebar/SocialSidebar";
-import {Route, Routes} from "react-router-dom";
+import {Navigate, redirect, Route, Routes} from "react-router-dom";
 import Home from "./pages/home/Home";
 import Works from "./pages/works/Works";
 import AboutMe from "./pages/about/AboutMe";
@@ -15,11 +15,13 @@ function App() {
                 <SocialSidebar/>
                 <Header/>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
+                    <Route index path="/" element={<Navigate to="/home" replace />}/>
                     <Route path="/home" element={<Home/>}/>
                     <Route path="/works" element={<Works/>}/>
                     <Route path="/about" element={<AboutMe/>}/>
                     <Route path="/contacts" element={<Contacts/>}/>
+
+                    <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
                 <Footer/>
         </div>
