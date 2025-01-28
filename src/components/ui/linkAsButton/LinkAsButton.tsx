@@ -1,77 +1,60 @@
-import styled, {css, DefaultTheme} from "styled-components";
-import {ButtonSize, ButtonVariant, sizes, variants} from "../button/Button";
-import {Link} from "react-router-dom";
+import React from 'react';
+import {DefaultTheme} from "styled-components";
+import {LinkProps} from "react-router-dom";
+import {ButtonSize, ButtonVariant} from "../button/Button";
+import {S} from "./LinkAsButton_styles"
 
-type LinkAsButtonProps = {
+// Types
+interface BaseStyleProps {
     variant?: ButtonVariant;
     size?: ButtonSize;
     disabled?: boolean;
     fullWidth?: boolean;
+    theme?: DefaultTheme;
+}
+
+interface LinkAsButtonProps extends BaseStyleProps, Omit<LinkProps, keyof BaseStyleProps> {
     to: string;
     target?: string;
     rel?: string;
     children?: React.ReactNode;
-    theme?: DefaultTheme;
 }
 
-// Базовые стили для ссылки
-const linkStyles = css`
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-    
-    // Отключаем стандартные стили ссылки при клике
-    &:focus {
-        outline: none;
-    }
-    
-    // Специальная обработка disabled состояния для ссылки
-    ${(props: LinkAsButtonProps) => props.disabled && css`
-        pointer-events: none;
-        opacity: 0.6;
-    `}
-`;
 
-// Создаем компонент ссылки, который наследует стили кнопки
-export const LinkAsButton = styled(Link)<LinkAsButtonProps>`
-    ${linkStyles}
-    ${({ variant = 'primary' }) => variants[variant]}
-    ${({ size = 'medium' }) => sizes[size]}
-    
-    // Наследуем остальные стили от кнопки
-    ${({ fullWidth }) => fullWidth && css`
-        width: 100%;
-    `}
+// Helper Functions
+const getRelAttribute = (target?: string): string | undefined =>
+    target === '_blank' ? 'noopener noreferrer' : undefined;
 
-    &:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3);
-    }
-`;
-
-// Компонент-обертка для удобного использования
-export const StyledLinkAsButton: React.FC<LinkAsButtonProps> = ({
-                                                          children,
-                                                          disabled,
-                                                          to,
-                                                          target,
-                                                          ...props
-                                                      }) => {
-    // Если ссылка открывается в новом окне, добавляем rel="noopener noreferrer"
-    const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
+// Main Component
+export const LinkAsButton: React.FC<LinkAsButtonProps> = ({
+                                                              children,
+                                                              disabled = false,
+                                                              to,
+                                                              target,
+                                                              variant = 'primary',
+                                                              size = 'medium',
+                                                              fullWidth = false,
+                                                              ...props
+                                                          }) => {
+    const rel = getRelAttribute(target);
 
     return (
-        <LinkAsButton
+        <S.StyledLink
             to={to}
             disabled={disabled}
             target={target}
             rel={rel}
+            variant={variant}
+            size={size}
+            fullWidth={fullWidth}
             {...props}
         >
             {children}
-        </LinkAsButton>
+        </S.StyledLink>
     );
 };
+
+
+
+// Экспорт типов для использования в других компонентах
+export type { LinkAsButtonProps, BaseStyleProps };
