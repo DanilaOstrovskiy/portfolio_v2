@@ -68,12 +68,18 @@ export const ContactDetails = () => {
             <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
                 <S.ContactList>
                     <S.ContactItem>
-                        <Icon iconId={"card"} viewBox="0 0 32 32" height={"32"} width={"32"}/>
-                        <S.Text onClick={() => handleCopyNumber('4149500120690030')} >4149500120690030</S.Text>
+                        <button onClick={() => handleCopyNumber('4149500120690030')}><Icon iconId={"card"}
+                                                                                           viewBox="0 0 32 32"
+                                                                                           height={"32"} width={"32"}/>
+                        </button>
+
+                        <S.Text onClick={() => handleCopyNumber('4149500120690030')}>4149500120690030</S.Text>
                     </S.ContactItem>
                     <S.ContactItem>
-                        <Icon iconId={"bitcoin"} viewBox={"0 0 32 32"} height={"32"} width={"32"}/>
-                        <S.Text onClick={() => handleCopyNumber('3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd')} >3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</S.Text>
+                        <button onClick={() => handleCopyNumber('3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd')}><Icon
+                            iconId={"bitcoin"} viewBox={"0 0 32 32"} height={"32"} width={"32"}/></button>
+                        <S.Text
+                            onClick={() => handleCopyNumber('3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd')}>3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</S.Text>
                     </S.ContactItem>
                     {showCopyNotification && (
                         <S.CopyNotification>
