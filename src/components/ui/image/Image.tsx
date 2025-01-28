@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
-import {theme} from "../../../styles/Theme";
+import {S} from "./Image_styles"
 
 type ImagePropsType = {
     src: string;
@@ -10,15 +9,7 @@ type ImagePropsType = {
 export const Image = (props: ImagePropsType) => {
     let {src, alt} = props
     return (
-        <StyledImage src={src} alt={alt} loading="lazy" />
+        <S.Image src={src} alt={alt} loading="lazy" />
     );
 };
 
-const StyledImage = styled.img`
-    max-width: 100%;
-    height: 201px;
-    object-fit: cover;
-    border-top:  1px solid ${theme.colors.secondary};
-    border-left:  1px solid ${theme.colors.secondary};
-    border-right:  1px solid ${theme.colors.secondary};
-`;

@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from "styled-components";
-import {useForm, SubmitHandler} from "react-hook-form";
-import {theme} from "../../styles/Theme";
+import {SubmitHandler, useForm} from "react-hook-form";
 import {StyledButton} from "../ui/button/Button";
 import {useTranslation} from "react-i18next";
+import {S} from "./ContactForm_styles"
 
 
 interface ContactFormProps {
@@ -33,22 +32,22 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <NameEmailWrapper>
-                <FormGroup>
+        <S.Form onSubmit={handleSubmit(onSubmit)}>
+            <S.NameEmailWrapper>
+                <S.FormGroup>
 
-                    <Input
+                    <S.Input
                         {...register("name", {required: t("common.contactForm.errorsMassage.nameRequired")})}
                         type="text" placeholder={" "}
 
                     />
-                    <Label>{t('common.contactForm.name')}</Label>
-                    {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>
+                    <S.Label>{t('common.contactForm.name')}</S.Label>
+                    {errors.name && <S.ErrorMessage>{errors.name.message}</S.ErrorMessage>
                     }
-                </FormGroup>
+                </S.FormGroup>
 
-                <FormGroup>
-                    <Input
+                <S.FormGroup>
+                    <S.Input
                         {...register("email", {
                             required: t("common.contactForm.errorsMassage.emailRequired"),
                             pattern: {
@@ -58,13 +57,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                         })}
                         type="email" placeholder={""}
                     />
-                    <Label>{t('common.contactForm.email')}</Label>
-                    {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-                </FormGroup></NameEmailWrapper>
+                    <S.Label>{t('common.contactForm.email')}</S.Label>
+                    {errors.email && <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>}
+                </S.FormGroup></S.NameEmailWrapper>
 
-            <FormGroup>
+            <S.FormGroup>
 
-                <Input
+                <S.Input
                     {...register("title", {
                         required: t('common.contactForm.errorsMassage.required'),
                         minLength: {
@@ -82,147 +81,24 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                     })}
                     type="text" placeholder={" "}
                 />
-                <Label>{t('common.contactForm.title')}</Label>
-                {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
-            </FormGroup>
+                <S.Label>{t('common.contactForm.title')}</S.Label>
+                {errors.title && <S.ErrorMessage>{errors.title.message}</S.ErrorMessage>}
+            </S.FormGroup>
 
-            <FormGroup>
-                <Textarea
+            <S.FormGroup>
+                <S.Textarea
                     {...register("message", {required: t("common.contactForm.errorsMassage.messageRequired")})}
                     placeholder=" "
                 />
-                {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
-                <TextareaLabel>{t('common.contactForm.message')}</TextareaLabel>
-            </FormGroup>
-            <ButtonWrapper>
+                {errors.message && <S.ErrorMessage>{errors.message.message}</S.ErrorMessage>}
+                <S.TextareaLabel>{t('common.contactForm.message')}</S.TextareaLabel>
+            </S.FormGroup>
+            <S.ButtonWrapper>
                 <StyledButton type="submit" size={"small"}>{t('common.contactForm.send')}</StyledButton>
-            </ButtonWrapper>
+            </S.ButtonWrapper>
 
-        </Form>
+        </S.Form>
     );
 };
 
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 569px;
-`;
-
-
-const FormGroup = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-`;
-
-const NameEmailWrapper = styled.div`
-    display: flex;
-    gap: 16px;
-
-    ${FormGroup} {
-        flex: 1; // каждая группа займет равное пространство
-        width: 50%; // явно указываем ширину 50%
-    }
-
-
-`
-
-const Label = styled.label`
-    color: ${theme.colors.secondary};
-    position: absolute;
-    left: 4px; // Увеличиваем отступ слева
-    top: 7px;
- 
-    background-color: transparent;
-    padding: 0 4px;
-    transition: all 0.2s ease-in-out;
-    pointer-events: none;
-`;
-
-const Input = styled.input`
-    padding: 8px; 
-    border: 1px solid ${theme.colors.secondary};
-    background: transparent;
-    color: ${theme.colors.secondary};
-    width: 100%;
-    text-indent: 8px;
-
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus {
-        -webkit-box-shadow: 0 0 0 30px ${theme.colors.primaryBg} inset !important;
-        -webkit-text-fill-color: ${theme.colors.secondary} !important;
-        transition: background-color 5000s ease-in-out 0s;
-    }
-
-    &::placeholder {
-        padding-left: 16px;
-        color: ${theme.colors.secondary};
-    }
-
-
-    &:focus,
-    &:not(:placeholder-shown) {
-        outline: none;
-        border-color: ${theme.colors.primary};
-        
-    }
-
-    &:focus ~ ${Label},
-    &:not(:placeholder-shown) ~ ${Label} {
-        top: 0;
-        left: 9px;
-        transform: translateY(-50%);
-        font-size: 16px;
-        background-color: ${theme.colors.primaryBg};
-        color: ${theme.colors.primary};
-    }
-    
-`;
-
-const Textarea = styled.textarea`
-    padding: 8px 12px;
-    border: 1px solid ${theme.colors.secondary};
-    background: transparent;
-    color: ${theme.colors.secondary};
-    min-height: 100px;
-    resize: none;
-
-    &:focus {
-        outline: none;
-        border-color: ${theme.colors.primary};
-    }
-
-    &:focus ~ ${Label},
-    &:not(:placeholder-shown) ~ ${Label} {
-        top: 0;
-        left: 9px;
-        transform: translateY(-50%);
-        font-size: 16px;
-        background-color: ${theme.colors.primaryBg};
-        color: ${theme.colors.primary};
-    }
-`;
-
-const TextareaLabel = styled(Label)`
-    top: 8px; // Фиксированное расстояние от верха
-    ${Textarea}:focus ~ &,
-    ${Textarea}:not(:placeholder-shown) ~ & {
-        top: 0;
-        transform: translateY(-50%);
-    }
-`;
-
-const ButtonWrapper = styled.div`
-`
-
-const ErrorMessage = styled.span`
-    color: #ff6b6b;
-    font-size: 14px;
-    
-    padding-left: 8px; // или через padding
-    
-`;
 

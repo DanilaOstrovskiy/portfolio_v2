@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {StyledLinkAsButton} from "../../../../../components/ui/linkAsButton/LinkAsButton";
+import {LinkAsButton} from "../../../../../components/ui/linkAsButton/LinkAsButton";
+
 
 type ProjectButtonsProps = {
     primaryLink?: string,
@@ -18,24 +19,23 @@ export const ProjectButtons = ({
 
         <ButtonsWrapper>
             {primaryLink && primaryTitle && (
-                <StyledLinkAsButton
+                <LinkAsButton
                     to={primaryLink}
                     variant="primary"
                     size="small"
                     target="_blank">
                     {primaryTitle}
-                </StyledLinkAsButton>
+                </LinkAsButton>
             )}
             {secondaryLink && secondaryTitle && (
-                    <StyledLinkAsButton
+                    <LinkAsButton
                         to={secondaryLink}
                         variant="secondary"
                         size="small"
                         target="_blank">
                         {secondaryTitle}
-                    </StyledLinkAsButton>
+                    </LinkAsButton>
                 )}
-
         </ButtonsWrapper>
 
 

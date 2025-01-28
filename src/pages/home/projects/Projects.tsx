@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from "styled-components";
 import {Project} from "./project/Project";
 import {SectionTitle} from "../../../components/ui/sectionTitle/SectionTitle";
 import project_1 from "../../../assets/images/proj1.webp";
@@ -7,10 +6,9 @@ import project_2 from "../../../assets/images/proj2.webp";
 import project_3 from "../../../assets/images/proj3.webp";
 import {FlexWrapper} from "../../../components/shared/flexWrapper/FlexWrapper";
 import {Container} from "../../../components/shared/Container/Container";
-import {theme} from "../../../styles/Theme";
-import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {TFunction} from "i18next";
+import {S} from "./Projects_styles";
 
 
 export interface IProject {
@@ -26,11 +24,6 @@ export interface IProject {
     secondaryButtonTitle: string;
 }
 
-export interface IProjectProps extends IProject {
-    key: number;
-    demoLink: string;
-    sourceLink: string;
-}
 
 const getProjectsData = (t: TFunction): IProject[] => [
     {
@@ -76,13 +69,13 @@ export const Projects = () =>
     const {t} = useTranslation();
     const projects = getProjectsData(t);
     return (
-        <StyledProjects>
+        <S.Projects>
             <Container>
                 <FlexWrapper align={"center"} justify={'space-between'}>
                     <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={"440px"} lineWidth={"511px"}/>
-                    <StyledLink to="/works">{t('home.projects.viewAll')}</StyledLink>
+                    <S.StyledLink to="/works">{t('home.projects.viewAll')}</S.StyledLink>
                 </FlexWrapper>
-                <ProjectsWrapper>
+                <S.ProjectsWrapper>
                     <FlexWrapper justify={"space-around"} wrap={"wrap"} gap={"15px"}>
                         {projects.map((project:IProject) => (
                             <Project
@@ -100,51 +93,10 @@ export const Projects = () =>
                             />
                         ))}
                     </FlexWrapper>
-                </ProjectsWrapper>
+                </S.ProjectsWrapper>
             </Container>
-
-        </StyledProjects>
+        </S.Projects>
     );
 };
 
 
-const StyledProjects = styled.section`
-    padding-top: 40px;
-    padding-bottom: 40px;
-    position: relative;
-
-    &::after {
-        content: "";
-        display: inline-block;
-        position: absolute;
-        border: 1px solid ${theme.colors.secondary};
-        width: 70px;
-        height: 155px;
-        right: 0;
-        top: 50%;
-
-        @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.desktopL} {
-            display: none;
-        }
-    }
-
-    @media ${theme.media.mobile}, ${theme.media.tablet} {
-        padding: 12px 20px;
-    }
-
-
-
-`
-
-const ProjectsWrapper = styled.div`
-    padding-top: 45px;
-    
-`
-
-const StyledLink = styled(Link)`
-    display: flex;
-    justify-content: end;
-    color: ${theme.colors.primary};
-    font-weight: 500;
-    font-size: 16px;
-`

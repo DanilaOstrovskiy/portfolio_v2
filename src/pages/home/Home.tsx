@@ -1,6 +1,5 @@
 import React from 'react';
 import {Main} from "./main/Main";
-
 import {Projects} from "./projects/Projects";
 import {Skills} from "./skills/Skills";
 import {About} from "./about/About";

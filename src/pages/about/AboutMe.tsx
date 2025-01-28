@@ -2,16 +2,16 @@ import React from 'react';
 import SectionHeader from "../works/sectionHeader/SectionHeader";
 import {About} from "../home/about/About";
 import {theme} from "../../styles/Theme";
-import SkillsOverview from "./SkillsOverview/SkillsOverview";
 import {Facts} from "./facts/Facts";
 import {useTranslation} from "react-i18next";
-import styled from "styled-components";
+import {SkillsOverview} from "./SkillsOverview/SkillsOverview";
+import {S} from "./AboutMe_styles"
 
 
 const AboutMe = () => {
     const {t} = useTranslation();
     return (
-        <StyledAboutMe>
+        <S.AboutMe>
             <SectionHeader
                 prefix={"/"}
                 title={t('about.headerTitle')}
@@ -40,15 +40,9 @@ const AboutMe = () => {
             />
             <SkillsOverview/>
             <Facts/>
-        </StyledAboutMe>
+        </S.AboutMe>
     );
 };
 
-const StyledAboutMe = styled.section`
-    padding-top: 32px;
-
-    @media ${theme.media.mobile}, ${theme.media.tablet}, ${theme.media.tabletL} {
-        padding: 82px 20px 12px;
-    }`
 
 export default AboutMe;
