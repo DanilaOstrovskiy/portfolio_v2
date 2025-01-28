@@ -8,7 +8,7 @@ const en = {
                 contacts: "contacts"
             },
             contactForm: {
-                name: "name",
+                name: "Name",
                 email: "Email",
                 title: "Title",
                 message: "Message",
@@ -110,7 +110,7 @@ const en = {
             headerTitle: "about-me",
             description: "Who am I?",
             facts: {
-                title: "fun facts about me",
+                title: "my-fun-facts",
                 firstFact: "I like winter more than summer",
                 secondFact: "I often bike with my friends",
                 thirdFact: {
