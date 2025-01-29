@@ -3,6 +3,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {StyledButton} from "../ui/button/Button";
 import {useTranslation} from "react-i18next";
 import {S} from "./ContactForm_styles"
+import emailjs from "@emailjs/browser"
 
 
 interface ContactFormProps {
@@ -12,7 +13,7 @@ interface ContactFormProps {
 interface FormInputs {
     name: string;
     email: string;
-    title: string;
+    subject: string;
     message: string;
 }
 
@@ -26,9 +27,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
     const {t} = useTranslation();
 
     const onSubmit: SubmitHandler<FormInputs> = (data) => {
-        console.log(data);
-        // Здесь будет логика отправки формы
-        onClose();
+        const templateParams = {
+            name: data.name,
+            email: data.email,
+            subject: data.subject,
+            message: data.message,
+        };
+
+        emailjs.send('service_l16z4fv', 'template_0prjn3d', templateParams, '2dYTxK5518JHyCMlU')
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                onClose();
+            })
+            .catch((err) => {
+                console.error('FAILED...', err);
+            });
     };
 
     return (
@@ -40,7 +53,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                         {...register("name", {required: t("common.contactForm.errorsMassage.nameRequired")})}
                         type="text" placeholder={" "}
 
-                    />
+                        name="name"/>
                     <S.Label>{t('common.contactForm.name')}</S.Label>
                     {errors.name && <S.ErrorMessage>{errors.name.message}</S.ErrorMessage>
                     }
@@ -55,7 +68,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                                 message: t("common.contactForm.errorsMassage.invalidEmail")
                             }
                         })}
-                        type="email" placeholder={""}
+                        type="email" placeholder={""} name={"email"}
                     />
                     <S.Label>{t('common.contactForm.email')}</S.Label>
                     {errors.email && <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>}
@@ -64,7 +77,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
             <S.FormGroup>
 
                 <S.Input
-                    {...register("title", {
+                    {...register("subject", {
                         required: t('common.contactForm.errorsMassage.required'),
                         minLength: {
                             value: 3,
@@ -75,21 +88,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({onClose}) => {
                             message: t("common.contactForm.errorsMassage.maxLength")
                         },
                         pattern: {
-                            value: /^[a-zA-Z0-9\s.,!?-]+$/,
+                            value: /^[a-zA-Zа-яА-Я0-9\s.,!?-]+$/,
                             message: t("common.contactForm.errorsMassage.pattern")
                         }
                     })}
-                    type="text" placeholder={" "}
+                    type="text" placeholder={" "} name={"subject"}
                 />
                 <S.Label>{t('common.contactForm.title')}</S.Label>
-                {errors.title && <S.ErrorMessage>{errors.title.message}</S.ErrorMessage>}
+                {errors.subject && <S.ErrorMessage>{errors.subject.message}</S.ErrorMessage>}
             </S.FormGroup>
 
             <S.FormGroup>
                 <S.Textarea
                     {...register("message", {required: t("common.contactForm.errorsMassage.messageRequired")})}
                     placeholder=" "
-                />
+                    name={"message"}/>
                 {errors.message && <S.ErrorMessage>{errors.message.message}</S.ErrorMessage>}
                 <S.TextareaLabel>{t('common.contactForm.message')}</S.TextareaLabel>
             </S.FormGroup>
