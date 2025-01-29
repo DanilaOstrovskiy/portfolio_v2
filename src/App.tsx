@@ -7,23 +7,31 @@ import Home from "./pages/home/Home";
 import Works from "./pages/works/Works";
 import AboutMe from "./pages/about/AboutMe";
 import {Contacts} from "./pages/contacts/Contacts";
+import {GoTopBtn} from "./components/goTopBtn/GoTopBtn";
+
+
+
+
+
+
 
 
 function App() {
     return (
         <div className="App">
-                <SocialSidebar/>
-                <Header/>
-                <Routes>
-                    <Route index path="/" element={<Navigate to="/home" replace />}/>
-                    <Route path="/home" element={<Home/>}/>
-                    <Route path="/works" element={<Works/>}/>
-                    <Route path="/about" element={<AboutMe/>}/>
-                    <Route path="/contacts" element={<Contacts/>}/>
+            <SocialSidebar/>
+            <Header/>
+            <Routes>
+                <Route index path="/" element={<Navigate to="/home" replace/>}/>
+                <Route path="/home" element={<Home/>}/>
+                <Route path="/works" element={<Works/>}/>
+                <Route path="/about" element={<AboutMe/>}/>
+                <Route path="/contacts" element={<Contacts/>}/>
 
-                    <Route path="*" element={<Navigate to="/home" replace />} />
-                </Routes>
-                <Footer/>
+                <Route path="*" element={<Navigate to="/home" replace/>}/>
+            </Routes>
+            <Footer/>
+            <GoTopBtn/>
         </div>
     );
 }
