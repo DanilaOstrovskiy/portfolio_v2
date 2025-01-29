@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SectionHeader from "../works/sectionHeader/SectionHeader";
 import {About} from "../home/about/About";
 import {theme} from "../../styles/Theme";
@@ -6,16 +6,33 @@ import {Facts} from "./facts/Facts";
 import {useTranslation} from "react-i18next";
 import {SkillsOverview} from "./SkillsOverview/SkillsOverview";
 import {S} from "./AboutMe_styles"
+import {useLocation} from "react-router-dom";
 
 
 const AboutMe = () => {
     const {t} = useTranslation();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.substring(1); // Убираем #
+            const element = document.getElementById(id);
+
+            if (element) {
+                setTimeout(() => { // Даем время DOM загрузиться
+                    element.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+            }
+        }
+    }, [location]);
+
     return (
-        <S.AboutMe>
-            <SectionHeader
-                prefix={"/"}
-                title={t('about.headerTitle')}
-                description={t('about.description')}/>
+        <S.AboutMe id="about">
+                <SectionHeader
+                               prefix={"/"}
+                               title={t('about.headerTitle')}
+                               description={t('about.description')}/>
             <About
                 showLine={false}
                 showButton={false}
