@@ -6,6 +6,7 @@ import {Container} from "../../../components/shared/Container/Container";
 import {LinkAsButton} from "../../../components/ui/linkAsButton/LinkAsButton";
 import {Icon} from "../../../components/ui/icon/Icon";
 import {useTranslation} from "react-i18next";
+import Tilt from 'react-parallax-tilt';
 import {S} from "./About_styles"
 
 export interface DecoratorStyles {
@@ -26,6 +27,7 @@ interface AboutProps {
     showLine?: boolean;
     beforeDecorator?: DecoratorStyles;
     afterDecorator?: DecoratorStyles;
+    id?: string;
 }
 
 export const About: React.FC<AboutProps> = ({
@@ -35,10 +37,14 @@ export const About: React.FC<AboutProps> = ({
                                                 showLine,
                                             }) => {
     const {t} = useTranslation();
+
+
+
     return (
         <S.About $beforeDecorator={beforeDecorator} $afterDecorator={afterDecorator}>
             <Container>
-                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={"326px"} linePosition={"350px"}/>
+                <SectionTitle prefix={"#"} title={t('home.about.title')} showLine={showLine} lineWidth={"326px"}
+                              linePosition={"350px"}/>
                 <FlexWrapper justify={'space-between'}>
                     <S.Description>
                         <S.Paragraph>{t('home.about.introduction')}</S.Paragraph>
@@ -46,11 +52,20 @@ export const About: React.FC<AboutProps> = ({
                         </S.Paragraph>
                         <S.Paragraph>{t('home.about.secondParagraph')}</S.Paragraph>
                         <S.ButtonWrapper>
-                            {showButton && (<LinkAsButton to="/about" variant={"primary"} size={"small"}>{t('home.about.link')}</LinkAsButton>)}
+                            {showButton && (<LinkAsButton to="/about#about" variant={"primary"}
+                                                          size={"small"}>{t('home.about.link')}</LinkAsButton>)}
                         </S.ButtonWrapper>
                     </S.Description>
-
-                    <S.PhotoWrapper>
+                    <Tilt
+                        className="parallax-effect-img"
+                        tiltMaxAngleX={40}
+                        tiltMaxAngleY={40}
+                        perspective={800}
+                        transitionSpeed={1500}
+                        scale={1.1}
+                        gyroscope={true}
+                        >
+                        <S.PhotoWrapper>
                         <S.IconWrapper className="dots5x5">
                             <Icon iconId={"dots5x5"} viewBox={"0 0 84 84"} width={"84"} height={"84"}></Icon>
                         </S.IconWrapper>
@@ -60,6 +75,8 @@ export const About: React.FC<AboutProps> = ({
                             <Icon iconId={"dots5x4"} viewBox="0 0 104 56" width={"104"} height={"56"}></Icon>
                         </S.IconWrapper>
                     </S.PhotoWrapper>
+                    </Tilt>
+
                 </FlexWrapper>
             </Container>
         </S.About>
