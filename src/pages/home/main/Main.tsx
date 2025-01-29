@@ -8,6 +8,7 @@ import {Modal} from "../../../components/Modal/Modal";
 import {ContactForm} from "../../../components/ContactForm/ContactForm";
 import {useTranslation} from "react-i18next";
 import {S} from "./Main_styles"
+import Typewriter from "typewriter-effect";
 
 
 export const Main = () => {
@@ -25,11 +26,21 @@ export const Main = () => {
     return (
         <S.Main>
             <Container>
-                <FlexWrapper align={'center'}  justify={'space-between'}>
+                <FlexWrapper align={'center'} justify={'space-between'}>
                     <S.DescriptionWrapper>
-                        <S.Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> {t('home.main.title.and')} <span>{t('home.main.title.professions.frontendDev')}</span></S.Name>
+                        <S.Name>{t('home.main.title.name')}<span>{t('home.main.title.professions.webDesigner')}</span> {t('home.main.title.and')}
+                            <span>{t('home.main.title.professions.frontendDev')}</span></S.Name>
 
-                        <S.MainTitle>{t('home.main.title.description')}</S.MainTitle>
+                        <S.MainTitle>
+                            <p>{t('home.main.title.description')}</p>
+                            <Typewriter
+                                options={{
+                                    strings: [t('home.main.title.description')],
+                                    autoStart: true,
+                                    loop: true,
+                                }}
+                            />
+                        </S.MainTitle>
                         <StyledButton size={"small"} onClick={handleOpenModal}>
                             {t('home.main.buttons.contactMe')}
                         </StyledButton>
@@ -44,7 +55,8 @@ export const Main = () => {
                                 <Icon iconId={"dots5x5"} viewBox={"0 0 84 84"} height={"84px"} width={"84px"}/>
                             </S.IconWrapper>
                         </S.PhotoWrapper>
-                        <S.Status><span></span>{t('home.main.status.currentlyWorking')} <b>{t('home.main.status.project')}</b></S.Status>
+                        <S.Status><span></span>{t('home.main.status.currentlyWorking')}
+                            <b>{t('home.main.status.project')}</b></S.Status>
                     </FlexWrapper>
                 </FlexWrapper>
             </Container>
