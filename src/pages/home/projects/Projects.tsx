@@ -73,7 +73,7 @@ export const Projects = () =>
             <Container>
                 <FlexWrapper align={"center"} justify={'space-between'}>
                     <SectionTitle prefix="#" title={t('home.projects.title')} showLine={true} linePosition={"440px"} lineWidth={"511px"}/>
-                    <S.StyledLink to="/works">{t('home.projects.viewAll')}</S.StyledLink>
+                    <S.StyledLink to="/works#works">{t('home.projects.viewAll')}</S.StyledLink>
                 </FlexWrapper>
                 <S.ProjectsWrapper>
                     <FlexWrapper justify={"space-around"} wrap={"wrap"} gap={"15px"}>
