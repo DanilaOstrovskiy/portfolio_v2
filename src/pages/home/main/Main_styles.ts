@@ -64,6 +64,10 @@ const MainTitle = styled.h1`
     color: ${theme.colors.secondary};
     margin: 31px 0 24px 0;
     line-height: 156%;
+    
+    p {
+        display: none;
+    }
 
     @media ${theme.media.mobile}, ${theme.media.tablet} {
         padding: 12px 20px;
