@@ -45,7 +45,7 @@ const ru = {
                 },
                 status: {
                     currentlyWorking: "В настоящее время работаю над",
-                    project: "Портфолио"
+                    project: " Портфолио"
                 }
             },
             quote: {

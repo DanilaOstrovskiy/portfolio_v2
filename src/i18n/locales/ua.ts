@@ -45,7 +45,7 @@ const ua = {
                 },
                 status: {
                     currentlyWorking: "Наразі працюю над",
-                    project: "Портфоліо"
+                    project: " Портфоліо"
                 }
             },
             quote: {

@@ -45,7 +45,7 @@ const en = {
                 },
                 status: {
                     currentlyWorking: "Currently working on",
-                    project: "Portfolio"
+                    project: " Portfolio"
                 }
             },
             quote: {
