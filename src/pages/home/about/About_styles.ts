@@ -60,7 +60,7 @@ const About = styled.section<{
         }
     }
 
-    ${LinkAsButton} {
+    & .link-as-button {
         @media ${theme.media.mobile}, ${theme.media.tablet} {
             display: none;
         }
